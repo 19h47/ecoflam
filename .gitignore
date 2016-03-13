@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+npm-debug.log
+/node_modules/
+/css/
+/js/
+*.sublime-workspace
+/src/ai/
+/src/psd/
+/src/jpg/
+/src/pdf/

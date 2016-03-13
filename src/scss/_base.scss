@@ -1,0 +1,47 @@
+/**
+ * BASE
+ */
+
+html,
+body
+{
+	height: 100%;
+	width: 100%;
+
+}
+
+html
+{
+    $original-font-size: 62.5%;
+
+    box-sizing: border-box;
+	font-size: $original-font-size;
+
+    // @include at('l')
+    // {
+    //     font-size: ($original-font-size * 3/4);
+    // }
+}
+
+body
+{
+    margin: 0;
+	// font-family: $font-family;
+}
+
+main
+{
+	height: 100%;
+	width: 100%;
+}
+
+*, *::after, *::before
+{
+    box-sizing: inherit;
+}
+
+a
+{
+	color: currentColor;
+	text-decoration: none;
+}
