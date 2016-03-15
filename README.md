@@ -43,4 +43,5 @@ TODO
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)  
 [README.md Template](https://gist.github.com/jxson/1784669)
 
+Thanks to [Julien Vasseur] (https://github.com/Djules) for all the things you teach me, it's awesome. 👊  
 Thanks to [Jean-Christophe Suzanne](https://twitter.com/jcsuzanne) for inspiration.
