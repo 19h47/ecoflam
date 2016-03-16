@@ -3,7 +3,10 @@
 ## Synopsis
 Hello! I'm a Starter Pack.
 
+I'm a beautiful worklow with tasks Gulp in separates files and folders.
+
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
 [README.md Template](https://gist.github.com/jxson/1784669)
 
 
@@ -13,7 +16,9 @@ Show what the library does as concisely as possible, developers should be able t
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+The idea behind this Starter Pack is to have one config file, with all the options that you can pass, without ever touch the task itself.
+
+So, the task can be reused in another project without any modification, with just the options to pass in the config.js file.
 
 ## Installation
 
