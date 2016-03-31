@@ -52,6 +52,16 @@
 	color: $black;
 }
 
+.color-red
+{
+    color: $red;
+}
+
+.color-grey
+{
+    color: $grey;
+}
+
 .desaturate
 {
     filter: gray;
@@ -178,6 +188,16 @@
 {
 	background-size: cover;
 	background-position: center;
+}
+
+.background-dark-grey
+{
+    background-color: $background-dark-grey;
+}
+
+.background-light-grey
+{
+    background-color: $background-light-grey;
 }
 
 // MENU

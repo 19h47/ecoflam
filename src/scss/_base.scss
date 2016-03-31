@@ -17,23 +17,31 @@ html
     box-sizing: border-box;
 	font-size: $original-font-size;
 
-    // @include at('l')
-    // {
-    //     font-size: ($original-font-size * 3/4);
-    // }
+    @include at('xs')
+    {
+        font-size: ($original-font-size * 3/4);
+    }
 }
 
 body
 {
     margin: 0;
-	// font-family: $font-family;
+    counter-reset: a;
+	font-family: $font-family;
 }
 
-main
+h1, .h1
 {
-	height: 100%;
-	width: 100%;
+	font-family: $font-title;
+    font-size: 4rem;
 }
+
+h2, .h2
+{
+    font-family: $font-title;
+    font-size: 3rem;
+}
+
 
 *, *::after, *::before
 {
@@ -43,5 +51,6 @@ main
 a
 {
 	color: currentColor;
+    cursor: pointer;
 	text-decoration: none;
 }

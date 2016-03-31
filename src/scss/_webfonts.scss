@@ -3,12 +3,99 @@
  */
 
 // FONT DECLARATION
-// 100    Extra Light or Ultra Light
-// 200    Light or Thin
-// 300    Book or Demi
-// 400    Normal or Regular
-// 500    Medium
-// 600    Semibold, Demibold
-// 700    Bold
-// 800    Black, Extra Bold or Heavy
-// 900    Extra Black, Fat, Poster or Ultra Black
+// 100    			Extra Light or Ultra Light
+// 200    $light	Light or Thin
+// 300    $book		Book or Demi
+// 400    $regular	Normal or Regular
+// 500    $medium	Medium
+// 600    $semibold Semibold, Demibold
+// 700    $bold		Bold
+// 800    			Black, Extra Bold or Heavy
+// 900    			Extra Black, Fat, Poster or Ultra Black
+
+// CABIN
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-Regular.otf');
+    font-weight: $regular;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-Medium.otf');
+    font-weight: $medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-MediumItalic.otf');
+    font-weight: $medium;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-Bold.otf');
+    font-weight: $semibold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-BoldItalic.otf');
+    font-weight: $semibold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-SemiBold.otf');
+    font-weight: $bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('#{$fonts-dir}/cabin/Cabin-SemiBoldItalic.otf');
+    font-weight: $bold;
+    font-style: italic;
+}
+
+// NOVECENTOWIDE
+@font-face {
+    font-family: 'NovecentoWide';
+    src: url('#{$fonts-dir}/novecentowide/Novecentowide-Light.otf');
+    font-weight: $light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NovecentoWide';
+    src: url('#{$fonts-dir}/novecentowide/Novecentowide-Book.otf');
+    font-weight: $book;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NovecentoWide';
+    src: url('#{$fonts-dir}/novecentowide/Novecentowide-Regular.otf');
+    font-weight: $regular;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NovecentoWide';
+    src: url('#{$fonts-dir}/novecentowide/Novecentowide-SemiBold.otf');
+    font-weight: $semibold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NovecentoWide';
+    src: url('#{$fonts-dir}/novecentowide/Novecentowide-Bold.otf');
+    font-weight: $bold;
+    font-style: normal;
+}
+

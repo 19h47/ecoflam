@@ -9,7 +9,7 @@
 @import "typi";
 
 @import "variables";
-// @import "mixins";
+@import "mixins";
 
 @import "webfonts";
 
@@ -20,7 +20,8 @@
 // @import "responsive-utilities";
 
 // @import "typo";
-// @import "components";
+@import "components";
+@import "components-animations";
 // @import "components-form";
 
 @import "layout";

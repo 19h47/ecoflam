@@ -1,0 +1,42 @@
+/**
+ * COMPONENTS: ANIMATIONS
+ */
+
+ .grayscale
+ {
+ 	filter: grayscale(100%);
+ 	transition: 0.3s ease;
+
+ 	&:hover
+ 	{
+ 		filter: grayscale(0);
+ 		transition: 0.3s ease;
+ 	}
+}
+
+.hoverable
+{
+	position: relative;
+	
+	&::after
+	{
+		display: block;
+		height: 2px;
+		width: 0;
+		position: absolute;
+		bottom: -7px;
+		left: auto;
+		right: 0;
+		background-color: $red;
+		content: "";
+		transition: width .3s ease;
+
+	}
+
+	&:hover::after
+	{
+		width: 100%;
+	    left: 0;
+	    right: auto;
+	}
+}

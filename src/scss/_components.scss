@@ -1,0 +1,33 @@
+/**
+ * COMPONENTS
+ */
+
+.menu-item
+{
+	color: $white;
+
+	&.current-menu-item
+	{
+		& > a
+		{
+			border: 1px solid currentColor;
+		}
+	}
+
+	& > a
+	{
+		padding: 0.5rem 1rem;
+		border: 1px solid transparent;
+		border-radius: 1px;
+		color: currentColor;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		transition: 0.3s ease;
+
+		&:hover
+		{
+			border: 1px solid currentColor;
+			transition: 0.3s ease;
+		}
+	}
+}

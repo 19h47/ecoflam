@@ -1,3 +1,55 @@
 /**
  * HEADER
  */
+
+.site-header
+{
+	height: 76.4rem;
+	position: relative;
+	background-attachment: fixed;
+	background-image: url('#{$img-dir}/ecoflam__home.jpg');
+	background-position: center;
+	background-size: cover;
+
+	.inner
+	{
+		padding-top: 4rem;
+	}
+	&__nav
+	{
+
+	}
+	
+	&__content
+	{
+		color: $white;
+		background-image: url('#{$img-dir}/svg/ecoflam__background-title.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+
+		&__title
+		{
+
+			> span
+			{
+				display: block;
+				font-family: $font-family;
+				font-size: 3rem;
+				font-style: italic;
+				
+				&:nth-child(1)
+				{
+					margin-bottom: 4rem;
+					margin-top: 20rem;
+				}
+
+				&:nth-child(2)
+				{
+					margin-top: 4rem;
+					margin-bottom: 20rem;
+				}
+			}
+		}
+
+	}
+}

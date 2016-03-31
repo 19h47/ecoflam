@@ -32,6 +32,7 @@ gulp.task('sass', function() {
         .pipe( mmq() )
         .pipe( csso() )
         .pipe( concat( config.file ))
+        .pipe( autoprefixer() )
         .pipe( sourcemaps.write( 'maps' ))
         .pipe( gulp.dest( config.dest ))
         ;

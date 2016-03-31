@@ -1,3 +1,240 @@
 /**
  * LAYOUT
  */
+
+.inner
+{
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	
+	max-width: $container-width;
+
+	&-wrapper
+	{
+		margin: 0 $gutter-width;
+	}
+
+	&.has-padding
+	{
+		padding-bottom: 14rem;
+	}
+
+	&.is-last
+	{
+		padding-bottom: 28.5rem;
+	}
+}
+
+// To create the oblic effect on section, we are using the property CSS clip-path. It works like a charm.
+.oblic
+{
+	
+	&-rtl
+	{
+		position: relative;
+		// margin-bottom: 144px;
+
+		&::before
+		{
+			display: block;
+			position: absolute;
+			top: -144px;
+			height: 144px;
+			width: 100%;
+			background-color: inherit;
+			content: "";
+			clip-path: polygon( 0% 100%, 100% 0%, 100% 100%, 0% 100%);
+		}
+		
+		.inner
+		{
+			// margin-top: 144px;
+		}
+
+	}
+
+	&-ltr
+	{
+		position: relative;
+		// margin-bottom: 144px;
+
+		&::before
+		{
+			display: block;
+			position: absolute;
+			top: -144px;
+			height: 144px;
+			width: 100%;
+			background-color: inherit;
+			content: "";
+			clip-path: polygon( 0% 0%, 100% 100%, 100% 100%, 0% 100%);
+		}
+		
+		.inner
+		{
+			// margin-top: 144px;
+		}		
+	}
+}
+
+.site-section
+{
+
+	&__title
+	{
+		color: currentColor;
+		position: relative;
+		margin-bottom: 6rem;
+		margin-top: 0;
+		text-transform: uppercase;
+
+		&::after
+		{
+			display: block;
+			height: 0.4rem;
+			width: 8.5rem;
+			position: absolute;
+			left: 50%;
+			bottom: -6rem;
+			background-color: $red;
+			content: "";
+			transform: translate( -50% );
+		}
+
+		&::before
+		{
+			display: block;
+			color: $grey;
+			content: counter(a, decimal-leading-zero);
+    		counter-increment: a 1;
+    		font-family: $font-family;
+    		margin-bottom: 3rem;
+    		margin-top: 1rem;
+		}
+	}
+
+	&.entreprise
+	{
+		// margin-bottom: 8rem;
+		// margin-top: 9rem;
+
+		.entreprise__description
+		{
+			margin: 1.7rem 0 0 0;
+			color: $text-black;
+			font-size: 1.5rem;
+		}
+	}
+
+	.text-20
+	{
+		font-size: 2rem;
+		line-height: 2.6rem;
+
+		.color-red
+		{
+			color: $red;
+		}
+	}
+
+	.text-16
+	{
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+
+		.color-red
+		{
+			color: $red;
+		}
+	}
+}
+
+// INSERT
+.insert
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -200px;
+
+	&__inner
+	{
+		background-color: $white;
+		border: 1px solid $text-black;
+	}
+	
+	&__title
+	{
+		position: absolute;
+		right: 50%;
+		padding: 1.2rem 1rem;
+		background-color: $text-black;
+		font-family: $font-title;
+		font-size: 1.8rem;
+		transform: translate(50%, -50%);
+	}
+
+	&__content
+	{
+		margin: 4rem 0 1.7rem 0;
+
+		&__list
+		{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+
+			&__item
+			{
+				margin: 0.7rem 0;
+				font-size: 1.6rem;
+
+				&::before
+				{
+					display: inline-block;
+					color: $red;
+					content: "- ";
+				}
+
+				&::after
+				{
+					display: inline-block;
+					color: $red;
+					content: " -";
+				}
+			}
+		}
+	}
+}
+
+// PRODUCTS
+.products
+{
+	&__title
+	{
+		margin: 0;
+		font-family: $font-title;
+		font-size: 2.5rem;
+	}
+
+	&__link
+	{
+		display: inline-block;
+		margin: 2rem 0 7rem 0;
+		font-family: $font-title;
+		font-size: 1.6rem;	
+	}
+
+	&__img
+	{
+		margin-bottom: 3rem;
+		max-width: 100%;
+	}
+}
+
+// BRANDS
+.brands
+{
+	margin: 1.5rem 0;
+}
