@@ -29,9 +29,13 @@ var menu = {
 	        .on( this._toggleMenu , function( e ) {
                 
                 // console.log( $( e.target ) );
+                // console.log( _this._$body );
+                // console.log( _this._classMenuOpen );
 
 	            _this._$body.toggleClass( _this._classMenuOpen );
-	            _this.mobileAnimation();
+                // $('body').toggleClass('menu--is-open');
+	            
+                // _this.mobileAnimation();
 
 
 	        })  

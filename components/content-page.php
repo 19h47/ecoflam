@@ -71,7 +71,7 @@
 							<p class="js-title page-section__text__title color-white">
 								<?php the_title(); ?>
 							</p>
-							<button class="page-section__text__button h4">
+							<button class="page-section__text__button h4 text-left display-inline-block">
 								Voir
 							</button>
 						</div>

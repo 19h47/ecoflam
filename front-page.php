@@ -55,31 +55,30 @@
 			<div class="inner-wrapper js-inner row">
 				<div class="col-xs-8 col-xs-offset-2">	
 					<div class="row center-xs middle-xs">
-							<div class="col-xs">
-								<p class="entreprise__description">
-									Poêles à bois
-								</p>
-							</div>
-							<div class="col-xs">
-								<p class="entreprise__description">
-									Poêles à granulés
-								</p>
-							</div>
-							<div class="col-xs">
-								<p class="entreprise__description">
-									Cheminées
-								</p>
-							</div>
-							<div class="col-xs">
-								<p class="entreprise__description">
-									Foyers gaz
-								</p>
-							</div>
-							<div class="col-xs">
-								<p class="entreprise__description">
-									Inserts
-								</p>
-							</div>
+						<div class="col-xs">
+							<p class="entreprise__description">
+								Poêles à bois
+							</p>
+						</div>
+						<div class="col-xs">
+							<p class="entreprise__description">
+								Poêles à granulés
+							</p>
+						</div>
+						<div class="col-xs">
+							<p class="entreprise__description">
+								Cheminées
+							</p>
+						</div>
+						<div class="col-xs">
+							<p class="entreprise__description">
+								Foyers gaz
+							</p>
+						</div>
+						<div class="col-xs">
+							<p class="entreprise__description">
+								Inserts
+							</p>
 						</div>
 					</div>
 				</div>
@@ -386,5 +385,4 @@
 			</div>	
 		</div>
 	</section>
-
 <?php get_footer(); ?>

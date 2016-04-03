@@ -2,7 +2,6 @@
 				</main>
 			<?php } ?>
 			</div>
-		</div>
 			<footer class="site-footer site-section">
 				<div class="inner has-padding">
 					<div class="row inner-wrapper js-inner center-xs">
@@ -78,9 +77,8 @@
 						</div>
 					</div>
 				</div>
-
-			</div>
-		</footer>
+			</footer>
+		</div><!-- /#js-wrapper -->
 		<?php wp_footer(); ?>
 	</body><!-- /body -->
 </html><!-- /html -->

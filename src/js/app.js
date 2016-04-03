@@ -1,6 +1,7 @@
 var app = {
 	// PRIVATE
 	// Here go the private variables
+    _$body: null,
 
 	// PUBLIC
 	// Here go the public variables
@@ -12,7 +13,7 @@ var app = {
 
 	// FUNCTIONS
 	init: function() {
-		this.$body = jQuery('body');
+		this._$body = $( 'body' );
 		this._initPlugins();
 
         home.init();
@@ -49,13 +50,13 @@ var app = {
                 render: function ( $container ) {
                     // Add your CSS animation reversing class
 
-                    $( 'body' ).addClass('is-loading');
+                    _this._$body.addClass('is-loading');
 
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
                     $( $container ).fadeOut();
-                    $('.site-footer').fadeOut();
+                    
                     // Ensure menu is closed
                     menu.close();
                 }
@@ -74,7 +75,7 @@ var app = {
                     
                    
                     // Remove your CSS animation reversing class
-                    $( 'body' ).removeClass('is-exiting');
+                    _this._$body.removeClass('is-exiting');
 
                     
 
@@ -83,10 +84,10 @@ var app = {
                 }
             },
             onAfter: function( $container, $newContent ){
-                
+                // Reload script
                 _this._reload(); 
                 $( $container ).fadeIn();
-                $('.site-footer').fadeIn();
+                
 
             }
         });

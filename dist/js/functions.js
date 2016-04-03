@@ -915,6 +915,7 @@ https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 var app = {
 	// PRIVATE
 	// Here go the private variables
+    _$body: null,
 
 	// PUBLIC
 	// Here go the public variables
@@ -926,7 +927,7 @@ var app = {
 
 	// FUNCTIONS
 	init: function() {
-		this.$body = jQuery('body');
+		this._$body = $( 'body' );
 		this._initPlugins();
 
         home.init();
@@ -963,13 +964,13 @@ var app = {
                 render: function ( $container ) {
                     // Add your CSS animation reversing class
 
-                    $( 'body' ).addClass('is-loading');
+                    _this._$body.addClass('is-loading');
 
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
                     $( $container ).fadeOut();
-                    $('.site-footer').fadeOut();
+                    
                     // Ensure menu is closed
                     menu.close();
                 }
@@ -988,7 +989,7 @@ var app = {
                     
                    
                     // Remove your CSS animation reversing class
-                    $( 'body' ).removeClass('is-exiting');
+                    _this._$body.removeClass('is-exiting');
 
                     
 
@@ -997,10 +998,10 @@ var app = {
                 }
             },
             onAfter: function( $container, $newContent ){
-                
+                // Reload script
                 _this._reload(); 
                 $( $container ).fadeIn();
-                $('.site-footer').fadeIn();
+                
 
             }
         });
@@ -1404,9 +1405,13 @@ var menu = {
 	        .on( this._toggleMenu , function( e ) {
                 
                 // console.log( $( e.target ) );
+                // console.log( _this._$body );
+                // console.log( _this._classMenuOpen );
 
 	            _this._$body.toggleClass( _this._classMenuOpen );
-	            _this.mobileAnimation();
+                // $('body').toggleClass('menu--is-open');
+	            
+                // _this.mobileAnimation();
 
 
 	        })  

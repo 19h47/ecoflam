@@ -93,29 +93,34 @@
     height: 100%;
 }
 
-.display-table
+.display
 {
-	display: table;
-}
 
-.display-table-cell
-{
-	display: table-cell;
-	vertical-align: middle;
-}
-.display-block
-{
-	display: block;
-}
+    &-table
+    {
+        display: table;
+       
+        &-cell
+        {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
 
-.display-none
-{
-	display: none;
-}
+    &-inline-block
+    {
+	   display: inline-block;
+    }
 
-.display-inline-block
-{
-	display: inline-block;
+    &-none
+    {
+        display: none;
+    }
+
+    &-block
+    {
+        display: block;
+    }
 }
 
 .valign-middle
