@@ -15,9 +15,9 @@ include __DIR__ . '/utilities.php';
 // override TinyMCE in backend
 // include __DIR__ . '/tinymce-styles.php';
 // custom taxonomies
-// include __DIR__ . '/taxonomies/_includes.php';
+include __DIR__ . '/taxonomies/_includes.php';
 // custom posts types
-// include __DIR__ . '/post-types/_includes.php';
+include __DIR__ . '/post-types/_includes.php';
 // custom roles
 // include __DIR__ . '/roles/_includes.php';
 // custom shortcodes

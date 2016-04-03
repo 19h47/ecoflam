@@ -28,6 +28,7 @@
 		left: auto;
 		right: 0;
 		background-color: $red;
+		border-radius: 1px;
 		content: "";
 		transition: width .3s ease;
 
@@ -39,4 +40,38 @@
 	    left: 0;
 	    right: auto;
 	}
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slideToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
 }

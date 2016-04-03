@@ -1,0 +1,29 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="12px" height="15px" viewBox="10.935 7.548 12 15" overflow="visible" enable-background="new 10.935 7.548 12 15" xml:space="preserve">
+
+	<g>
+		<defs>
+			<rect id="SVGID_1_" width="31" height="31"/>
+		</defs>
+
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		</clipPath>
+
+		<rect 
+			clip-path="url(#SVGID_2_)" 
+			fill="none" 
+			stroke="#7c7a7b" 
+			stroke-miterlimit="10" 
+			height="30"
+			width="30" 
+			x="0.5" 
+			y="0.5" 
+		/>
+	</g>
+
+	<polygon 
+		class="change-fill" 
+		fill="#7C7A7B" 
+		points="14.499,23.007 10.935,23.007 19.039,15.278 10.935,7.548 14.499,7.548 22.604,15.278 "
+	/>
+</svg>

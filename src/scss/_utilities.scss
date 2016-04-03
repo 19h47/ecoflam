@@ -2,6 +2,20 @@
  * UTILITIES
  */
 
+ .h100vh
+ {
+    height: 100vh;
+ }
+
+ .h100
+ {
+    height: 100%;
+ }
+ .w100
+ {
+    width: 100%;
+ }
+
 // AFFICHAGE DES FONTS
 .uppercase
 {
@@ -49,7 +63,12 @@
 
 .color-black
 {
-	color: $black;
+    color: $black;
+}
+
+.color-text-black
+{
+	color: $text-black;
 }
 
 .color-red
@@ -210,6 +229,11 @@
 	li
 	{
 		display: inline-block;
+
+        @include to ('s')
+        {
+            display: block;
+        }
 
 	}
 }

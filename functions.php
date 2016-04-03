@@ -62,20 +62,21 @@ function ecoflam_add_custom_assets() {
         wp_register_script( 'jquery', '//code.jquery.com/jquery-2.2.0.min.js', false, null, true );
 
         // GSAP - https://greensock.com/tweenmax
-        // wp_register_script( 'gsap-tweenlite', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js', false, null, true );
-        // wp_register_script( 'gsap-timelinelite', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js', false, null, true );
+        wp_register_script( 'gsap-tweenmax', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js', false, null, true );
+        wp_register_script( 'gsap-timelinemax', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js', false, null, true );
         // wp_register_script( 'gsap-easepack', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js', false, null, true );
         // wp_register_script( 'gsap-draggable', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/utils/Draggable.min.js', false, null, true );
         // wp_register_script( 'gsap-cssplugin', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js', false, null, true );
 
         // Global functions
-        wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'jquery-form', 'gsap-tweenlite', 'gsap-timelinelite', 'gsap-easepack', 'gsap-cssplugin' ), null, true );
-        wp_localize_script( 'ecoflam-functions', 'wp', array(
-            'template_directory_uri'    => get_template_directory_uri(),
-            'home_url'                  => home_url( '/' ),
-            'base_url'                  => site_url(),
-            'is_front_page'             => is_front_page(),
-        ) );
+        wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'gsap-tweenmax', 'gsap-timelinemax' ), null, true );
+        // wp_localize_script( 'ecoflam-functions', 'wp', array(
+        //     'template_directory_uri'    => get_template_directory_uri(),
+        //     'home_url'                  => home_url( '/' ),
+        //     'base_url'                  => site_url(),
+        //     'is_front_page'             => is_front_page(),
+        // ) );
+        // wp_register_script( 'ecoflam-app', get_template_directory_uri() . '/dist/js/min/functions.min.js',  array( 'jquery' ), null, true );
 
         // homepage
         // wp_register_script( 'ecoflam-home', get_template_directory_uri() . '/js/min/home.min.js', array( 'ecoflam-functions' ), null, true );
@@ -89,7 +90,8 @@ function ecoflam_add_custom_assets() {
         // wp_register_script( 'ecoflam-404', get_template_directory_uri() . '/js/min/404.min.js', array( 'ecoflam-functions' ), null, true );
 		// app
 		// should always be the last
-        // wp_register_script( 'ecoflam-app', get_template_directory_uri() . '/js/min/app.min.js', array( 'ecoflam-home', 'ecoflam-projects', 'ecoflam-project', 'ecoflam-contact', 'ecoflam-404' ), null, true );
+        // wp_register_script( 'ecoflam-app', get_template_directory_uri() . '/js/min/functions.min.js', array( 'ecoflam-home', 'ecoflam-projects', 'ecoflam-project', 'ecoflam-contact', 'ecoflam-404' ), null, true );
+
 
         // then load -----------------------------------------------------------
 

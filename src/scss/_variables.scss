@@ -10,6 +10,7 @@ $white: #fff;
 $text-black: #363334;
 
 $red: #c13b27;
+$green: #27c13b;
 
 $grey: #7c7a7b;
 
@@ -58,7 +59,7 @@ $img-dir: "../../img/";
 // BREAKPOINT SLICER https://github.com/lolmaus/breakpoint-slicer
 $slicer-breakpoints: 0 480px 768px 992px 1400px; // 1400 for 13" devices
 $slicer-breakpoint-names: 'xs' 's' 'm' 'l' 'xl';
-$slicer-anti-overlap-corrections: -1px;
+// $slicer-anti-overlap-corrections: -1px;
 
 //  TYPI ( https://github.com/zellwk/typi )
 // $breakpoints: ();

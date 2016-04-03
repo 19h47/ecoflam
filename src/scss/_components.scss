@@ -2,15 +2,93 @@
  * COMPONENTS
  */
 
+// COLOR MENU
+.home
+{
+	.menu-item
+	{
+		color: $white;
+	}
+}
+
+// COLOR SVG
+.home
+{
+	.site-header
+	{
+		height: 76.4rem;
+		background-attachment: fixed;
+		background-image: url('#{$img-dir}/ecoflam__home.jpg');
+		background-position: center;
+		background-size: cover;
+
+		&__logo
+		{	
+			.svg
+			{
+				.change-fill
+				{
+					fill: $white;
+				}
+			}
+		}
+	}
+}
+
+.site-footer
+{
+	.svg
+	{
+		.change-fill
+		{
+			fill: $white;
+		}
+	}
+}
+
+// MENU
 .menu-item
 {
-	color: $white;
+	// color: $white;
+
+	@include to( 's' )
+	{
+		height: 5rem;
+		line-height: 5rem;
+		text-align: left;
+	}
+	
+	&:hover
+	{
+		@include to ('s')
+		{
+			background-color: $grey;
+
+			& > a 
+			{
+				color: $white;
+			}
+		}
+	}
 
 	&.current-menu-item
 	{
+		@include to('s')
+		{
+			background-color: $grey;
+		}
+
 		& > a
 		{
 			border: 1px solid currentColor;
+
+			@include to('s')
+			{
+				color: $white;
+				
+				border-color: transparent;
+				border-radius: 0px;
+			}
 		}
 	}
 
@@ -18,16 +96,32 @@
 	{
 		padding: 0.5rem 1rem;
 		border: 1px solid transparent;
-		border-radius: 1px;
+		border-radius: 4px;
 		color: currentColor;
 		font-size: 1.4rem;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		transition: 0.3s ease;
+
+		@include to('s')
+		{
+			display: block;
+			padding: 0 0 0 2.5rem;
+			color: $background-dark-grey;
+			font-size: 1.4rem;
+			letter-spacing: 0;
+		}
 
 		&:hover
 		{
 			border: 1px solid currentColor;
 			transition: 0.3s ease;
+
+			@include to('s')
+			{
+				border-color: transparent;
+				border-radius: 0px;
+			}
 		}
 	}
 }

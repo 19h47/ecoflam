@@ -92,3 +92,44 @@
 //   // Styles inside here will be applied when
 //   // browser window width is somewhere between 600px and 800px
 // }
+
+// EXPAND GRID
+.hidden-at-xs
+{
+    @include at ('xs') 
+    {
+        display: none;
+    }
+}
+
+.hidden-at-s
+{
+    @include at ('s') 
+    {
+        display: none;
+    }
+}
+
+.hidden-to-s
+{
+    @include to ('s') 
+    {
+        display: none;
+    }
+}
+
+.hidden-to-m
+{
+    @include to ('m') 
+    {
+        display: none;
+    }
+}
+
+.hidden-from-m
+{
+    @include from ('m')
+    {
+        display: none;
+    }
+}

@@ -2,22 +2,66 @@
  * HEADER
  */
 
+.menu--is-open
+{
+	.site-header__nav
+	{
+		display: block;
+
+		&__overlay
+		{
+			display: block;
+		}
+	}
+
+
+}
+
 .site-header
 {
-	height: 76.4rem;
 	position: relative;
-	background-attachment: fixed;
-	background-image: url('#{$img-dir}/ecoflam__home.jpg');
-	background-position: center;
-	background-size: cover;
 
 	.inner
 	{
 		padding-top: 4rem;
 	}
+
+	&__logo
+	{
+		.svg
+		{
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
 	&__nav
 	{
+		@include to( 's' )
+		{
+			display: none;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			top: 0;
+			margin: 0;
+			padding: 11.5rem 0 0 0;
+			width: 24rem;
+			background-color: $white;
+			z-index: 20;
+		}
 
+		&__overlay
+		{
+			display: none;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			background-color: rgba( 0, 0, 0, .25 );
+			z-index: 19;
+		}
 	}
 	
 	&__content
@@ -29,6 +73,7 @@
 
 		&__title
 		{
+			letter-spacing: 0.2em;
 
 			> span
 			{
@@ -36,6 +81,7 @@
 				font-family: $font-family;
 				font-size: 3rem;
 				font-style: italic;
+				letter-spacing: 0.05em;
 				
 				&:nth-child(1)
 				{

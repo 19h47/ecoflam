@@ -1,0 +1,355 @@
+/**
+ * LAYOUT: PAGE
+ */
+
+.page-section
+{
+	position: relative;
+	
+	&__overlay-image
+	{
+		display: none;
+		position: absolute;
+		// padding: 1rem;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		// background-color: blue;
+		z-index: 10;
+
+		&.show
+		{
+			display: flex;
+		}
+
+		&__img
+		{
+			// margin: 1rem;
+			max-width: 100%;
+			height: auto;
+		}
+
+		&__inner
+		{
+			position: relative;
+			padding-bottom: 1rem;
+			padding-top: 1rem;
+			background-color: $white;
+		}
+
+		&__close
+		{
+			position: absolute;
+			right: 0;
+			top: 0;
+			margin: 1rem;
+			height: 2.5rem;
+			width: 2.5rem;
+			background-color: $red;
+			color: $white;
+			cursor: pointer;
+			line-height: 2.9rem;
+
+			.svg
+			{
+				height: 2.5rem;
+			}
+		}
+	}
+
+	&__navigation
+	{
+		padding-bottom: 6rem;
+
+		&__link
+		{
+			display: inline-block;
+			padding: 0.7rem 1rem;
+			color: $text-black;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+
+			&.current
+			{
+				background-color: $red;
+				border-radius: 4px;
+				color: $white;
+
+				&::after
+				{
+					display: none;
+				}
+			}
+		}
+	}
+
+	&::after
+	{
+		display: block;
+		content: "";
+		padding-bottom: 100%;
+	}
+
+	&__inner
+	{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		margin: 1rem;
+		background-position: center;
+		background-size: cover;
+		cursor: pointer;
+	}
+
+	&__thumbnail
+	{
+	}
+
+	&__text
+	{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		margin: 2rem;
+
+		z-index: 2;
+
+		&__category
+		{
+			margin: 0;
+			// color: $white;
+			letter-spacing: 0;
+			text-transform: uppercase;
+			font-family: $font-title;
+		}
+
+		&__title
+		{
+			margin: 0;
+			// color: $white;
+			font-style: italic;
+
+		}
+
+		&__button
+		{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: transparent;
+			border: none;
+			color: $white;
+			text-transform: uppercase;
+
+			&::after
+			{
+				display: block;
+				height: 2px;
+				width: 0;
+				position: absolute;
+				bottom: -7px;
+				left: auto;
+				right: 0;
+				background-color: $white;
+				content: "";
+				transition: width .3s ease;
+
+			}
+		}
+	}
+
+	&__overlay
+	{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+		// margin: 1rem;
+		background-color: $grey;
+		opacity: 0.8;
+		transition: 0.3s ease;
+		z-index: 1;
+	}
+	&:hover
+	{
+		.page-section
+		{
+
+			&__overlay
+			{
+				background-color: $red;
+				transition: 0.3s ease;
+			}
+
+			&__text
+			{
+				&__button
+				{
+					&::after
+					{
+						width: 100%;
+					    left: 0;
+					    right: auto;
+					}
+				}
+			}
+		}
+	}
+
+	&__contact-form
+	{
+		width: 100%;
+
+		.wpcf7
+		{
+			&-form
+			{
+				&-control
+				{
+					display: block;
+					height: 5rem;
+					width: 100%;
+					padding: 0 1rem;
+					margin: 0.5rem 0;
+					background-color: transparent;
+					border: 1px solid $grey;
+					border-radius: 4px;
+					color: $grey;
+					font-size: 1.6rem;
+					font-family: $font-title;
+					letter-spacing: 0.3em;
+					
+
+					&-wrap
+					{
+
+					}
+				}
+			}
+
+			&-textarea
+			{
+				padding-top: 1rem;
+				max-width: 100%;
+				min-height: 25rem;
+			}
+
+			&-submit
+			{
+				width: 15rem;
+				margin-bottom: 5rem;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 5rem;
+				background-color: $red;
+				border-color: $red;
+				color: $white;
+				transition: 0.3s ease;
+
+				&:hover
+				{
+					background-color: transparent;
+					color: $red;
+					transition: 0.3s ease;
+				}
+			}
+		}
+	}
+}
+
+.wpcf7
+{
+	.screen-reader-response, &-validation-errors, &-response-output 
+	{
+		// height: 5rem;
+		
+		font-size: 1.6rem;
+		font-family: $font-title;
+		letter-spacing: 0.3em;
+		line-height: 2.6em;
+		
+		& > ul
+		{
+			display: none;
+		}
+	}
+
+	&-response-output
+	{
+		color: $green;
+	}
+
+	&-validation-errors
+	{
+		color: $red;
+	}
+
+	&-not-valid-tip
+	{
+		display: none;
+	}
+
+	&-not-valid
+	{
+		border-color: $red!important;
+	}
+}
+
+.page-numbers
+{
+	display: inline-block;
+	height: 2.5rem;
+	width: 2.3rem;
+	border: 1px solid transparent;
+	color: $text-black;
+	font-size: 1.2rem;
+	line-height: 2.3rem;
+	transition: 0.3s ease;
+
+	&:hover
+	{
+		border: 1px solid currentColor;
+		transition: 0.3s ease;
+	}
+
+	&.current
+	{
+		background-color: $red;
+		border: none;
+		color: $white;
+	}
+
+	&.next, &.prev
+	{
+		border: 1px solid currentColor;
+	}
+}
+
+.page-contact
+{
+	&__footer
+	{
+		padding: 3rem 0;
+		font-size: 1.8rem;
+
+		&__title
+		{
+			color: $grey;
+			font-family: $font-title;
+			letter-spacing: 0.1em;
+		}
+
+		&__text
+		{
+			color: $white;
+			font-style: italic;
+		}
+	}
+}

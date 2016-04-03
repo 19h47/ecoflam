@@ -26,6 +26,9 @@
 
 @import "layout";
 @import "header";
-// @import "footer";
+@import "footer";
 
 // IMPORT SPECIFIC LAYOUTS
+@import "layout-page";
+
+@import "default-editor";

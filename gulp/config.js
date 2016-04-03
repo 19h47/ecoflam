@@ -38,7 +38,13 @@ module.exports = {
     javascript: {
         // Source of Javascript files
         src: [
-            src + '/js/home.js'
+            'node_modules/wallop/js/Wallop.js',
+            'node_modules/waypoints/lib/jquery.waypoints.min.js',
+            'node_modules/smoothstate/src/jquery.smoothState.js',
+            src + '/js/app.js',
+            src + '/js/home.js',
+            src + '/js/page.js',
+            src + '/js/menu.js'
         ],
         // Source to watch
         srcWatch : src + '/js/*.js',

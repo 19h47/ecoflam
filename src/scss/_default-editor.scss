@@ -1,0 +1,81 @@
+/**
+ *	DEFAULT EDITOR
+ **/
+
+
+// 
+
+img.alignnone
+{
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+img
+{
+	max-width: 100%;
+	height: auto;
+}
+
+h4
+{
+	margin: 0;
+	color: $text-black;
+}
+
+p
+{
+	margin-bottom: 2.6rem;
+	margin-top: 0.6rem;
+	color: $grey;
+	font-size: 1.6rem;
+	line-height: 2.6rem;
+}
+
+.alignleft, img.alignleft 
+{
+	float: left;
+}
+
+.alignright, img.alignright 
+{
+	float: right;
+}
+
+.aligncenter, img.aligncenter {}
+.alignnone, img.alignnone
+{
+	max-width: 100%;
+	height: auto;
+}
+
+.wp-caption
+{
+	margin: 0;
+}
+
+.wp-caption img {}
+.wp-caption p.wp-caption-text {}
+
+.wp-caption-text p
+{
+	margin: 0;
+}
+
+.wp-smiley {}
+
+blockquote.left {}
+blockquote.right {}
+
+.gallery dl {}
+.gallery dt {}
+.gallery dd {}
+.gallery dl a {}
+.gallery dl img {}
+.gallery-caption {}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}

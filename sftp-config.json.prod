@@ -8,12 +8,12 @@
     "sync_down_on_open": false,
     "sync_same_age": true,
     
-    "host": "19h47.fr",
-    "user": "u54977526",
-    "password": "vT477y7b<^~D>DfE",
+    "host": "ecoflam.fr",
+    "user": "u83722964",
+    "password": "865mwM3jAJBh",
     // "port": "21",
     
-    "remote_path": "/wp-content/themes/ecoflam",
+    "remote_path": "/",
     //"file_permissions": "664",
     //"dir_permissions": "775",
     "ignore_regexes": [
@@ -38,5 +38,5 @@
     //"remote_locale": "C",
     //"allow_config_upload": false,
 
-    "upload_on_save": true,
+    // "upload_on_save": true,
 }
