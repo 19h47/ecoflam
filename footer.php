@@ -5,7 +5,7 @@
 			<footer class="site-footer site-section">
 				<div class="inner has-padding">
 					<div class="row inner-wrapper js-inner center-xs">
-						<div class="col-xs-4">
+						<div class="col-xs-12 col-s-4">
 							<h2 class="site-section__title">
 								<img class="svg" alt="Écoflam logo" src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__logo.svg" width="290" height="33">
 							</h2>
@@ -19,7 +19,7 @@
 								Nous Contacter
 							</p>
 							<div class="site-footer__text row">
-								<div class="col-xs-6 col-md-12 site-footer__text__inner">
+								<div class="col-xs-12 col-sm-6 col-md-12 site-footer__text__inner">
 									<a href="https://www.google.fr/maps/place/32+Avenue+Jacques+Duclos,+37700+Saint-Pierre-des-Corps/@47.3797625,0.7201911,17z/data=!3m1!4b1!4m2!3m1!1s0x47fcd410ee8eb249:0x83f10976d113fefa" target="_blank">
 										<span class="color-red uppercase">
 											Saint Pierre des Corps
@@ -38,7 +38,7 @@
 									<span class="hidden-to-m">—</span> <br>
 									<br>
 								</div>
-								<div class="col-xs-6 col-md-12 site-footer__text__inner">
+								<div class="col-xs-12 col-sm-6 site-footer__text__inner">
 									<a href="https://www.google.fr/maps/place/105+Avenue+de+Tours,+37400+Amboise/@47.4050532,0.9586584,17z/data=!3m1!4b1!4m2!3m1!1s0x47fcca5f6928339d:0x930d62f145d34e9f" target="_blank">
 										<span class="color-red uppercase">
 											Amboise

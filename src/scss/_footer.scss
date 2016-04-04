@@ -23,6 +23,11 @@
 		font-size: 1.8rem;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
+
+		@include at('xs')
+		{
+			margin-top: 7rem;
+		}
 	}
 
 	&__text

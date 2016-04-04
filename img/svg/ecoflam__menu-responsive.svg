@@ -1,0 +1,27 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="16px" viewBox="0 0 20 16" overflow="visible">
+
+	<rect 
+		x="0"
+		y="0"
+		fill="#FFFFFF" 
+		width="20" 
+		height="2.125"
+	/>
+
+	<rect 
+		x="0"
+		y="13.875" 
+		fill="#FFFFFF" 
+		width="20" 
+		height="2.125"
+	/>
+
+	<rect
+		x="0" 
+		y="6.939" 
+		fill="#FFFFFF" 
+		width="20" 
+		height="2.125"
+	/>
+
+</svg>

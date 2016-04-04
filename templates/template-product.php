@@ -8,7 +8,7 @@
 	<div class="inner has-padding">
 		<div class="inner-wrapper row center-xs">
 			<div class="col-xs-12">
-				<h2 class="site-section__title">
+				<h2 class="site-section__title has-no-count">
 						<?php the_title(); ?>
 				</h2>
 			</div>

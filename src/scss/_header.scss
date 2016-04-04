@@ -6,11 +6,13 @@
 {
 	.site-header__nav
 	{
-		display: block;
+		transform: translate3d(0,0,0);
+		opacity: 1;
 
 		&__overlay
 		{
 			display: block;
+			opacity: 1;
 		}
 	}
 
@@ -39,7 +41,6 @@
 	{
 		@include to( 's' )
 		{
-			display: none;
 			position: fixed;
 			bottom: 0;
 			right: 0;
@@ -48,7 +49,65 @@
 			padding: 11.5rem 0 0 0;
 			width: 24rem;
 			background-color: $white;
+			transform: translate3d(100%,0,0);
+			transition: all .3s ease-out;
+			opacity: 0;
 			z-index: 20;
+		}
+
+		&__button
+		{
+			&-open
+			{
+				height: 3rem;
+				padding: 0 0.5rem;
+				border: none;
+				border-radius: 4px;
+				color: $white;
+				font-family: $font-title;
+				font-size: 1.8rem;
+				letter-spacing: 0.1;
+
+				@include background-opacity( $background-dark-grey, 0.5);
+
+				&::after{
+					display: inline-block;
+					margin: 0 0 0 1rem;
+					height: 1.6rem;
+					width: 2rem;
+					content: "";
+					background-image: url('#{$img-dir}/svg/ecoflam__menu-responsive.svg');
+					background-size: auto 100%;
+				}
+			}
+			&-close
+			{
+				padding: 0 2.5rem;
+				width: 100%;
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+    			top: 4rem;
+    			background-color: transparent;
+    			border: none;
+    			color: $grey;
+    			font-family: $font-title;
+    			font-size: 1.8rem;
+    			letter-spacing: 0.1;
+    			text-align: left;
+    			// transform: translate(50%, 0);
+				
+				&::after
+				{
+					display: inline-block;
+					height: 2.1rem;
+					width: 2.1rem;
+					content: "";
+					background-image: url('#{$img-dir}/svg/ecoflam__menu-close.svg');
+					background-size: auto 100%;
+					float: right;
+				}
+			}
 		}
 
 		&__overlay
@@ -60,6 +119,8 @@
 			right: 0;
 			top: 0;
 			background-color: rgba( 0, 0, 0, .25 );
+			opacity: 0;
+			transition: all .3s ease-out;
 			z-index: 19;
 		}
 	}

@@ -4,7 +4,7 @@
 		<div class="inner-wrapper row center-xs">
 			<div class="col-xs-12">
 		
-				<h2 class="site-section__title">
+				<h2 class="site-section__title has-no-count">
 					<?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );?>
 					<?php echo $term->name; ?>
 				</h2>

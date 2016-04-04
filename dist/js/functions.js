@@ -1329,11 +1329,13 @@ var menu = {
 	        .on(this._toggleMenu, function(e) {
 
 	            _this._$body.toggleClass(_this._classMenuOpen);
-                // $('body').toggleClass('menu--is-open');
 	            
-                // _this.mobileAnimation();
+                _this.mobileAnimation();
 
-	        })  
+	        })
+            .on( 'click', '#js-menu-close', function(e){
+                _this.close();
+            })  
 	        .on('click', function(e) {
 				e.preventDefault();
                 // console.log( e.target );
@@ -1365,7 +1367,7 @@ var menu = {
             )
             .staggerFromTo(
             	'.menu-item', 
-            	1, 
+            	0.3, 
             	{ 
             		opacity: 0, 
             		x: 25 

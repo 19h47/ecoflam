@@ -95,12 +95,13 @@
 					</p>
 				</div>
 				<div class="site-section__text col-xs-12 col-sm-8 text-16 color-grey text-multiple-column">
-					<p>
+					<p class="display-inline-block">
 						De plus en plus à l'honneur, les poêles et cheminées aux lignes épurées s'imposent au cœur de votre foyer.
 						<br>
 						La gamme des installations commercialisées par ECOFLAM offre une grande variété de marques et de produits à la pointe de la technologie alliant style et performance, quel que soit votre budget.
+						<br>
 					</p>
-					<p>
+					<p class="display-inline-block">
 						Vous trouverez notamment des poêles à bois, à accumulation et à granulés.
 						<br>
 						<br>
@@ -152,12 +153,12 @@
 		</div>
 		<div class="inner">
 			<div class="inner-wrapper js-inner row start-xs">	
-				<div class="col-xs-6">
+				<div class="col-xs-12 col-sm-6">
 					<a href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-01.jpg" alt="Poêles" width="440" height="535">
 					</a>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-12 col-sm-6">
 					<p class="products__title h3">Poêles</p>
 					<a href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/" class="products__link hoverable">Voir</a>
 					<a href="<?php echo home_url( '/' ) ?>les-produits/cheminees/">
@@ -202,62 +203,62 @@
 			<div class="row inner-wrapper js-inner">
 				<div class="col-xs-12 col-md-10 col-md-offset-1">
 					<div class="row middle-xs center-xs brands">
-						<a class="col-xs" href="http://www.altechpoeles.com">
+						<a class="col-xs-6 col-sm" href="http://www.altechpoeles.com">
 							<img alt="altechpoeles" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__altechpoeles.svg"  width="58px" height="23px">
 						</a>
 
-						<a class="col-xs" href="http://www.bgfires.com">
+						<a class="col-xs-6 col-sm" href="http://www.bgfires.com">
 							<img alt="bgfires" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__bgfires.svg"  width="90px" height="27px">
 						</a>
 
-						<a class="col-xs" href="http://www.poujoulat.fr/fr/">
+						<a class="col-xs-6 col-sm" href="http://www.poujoulat.fr/fr/">
 							<img alt="poujoulat" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__poujoulat.svg" width="86px" height="47px">
 						</a>
 
-						<a class="col-xs" href="http://www.danskan.be">
+						<a class="col-xs-6 col-sm" href="http://www.danskan.be">
 							<img alt="danskan" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__danskan.svg" width="46px" height="46px">
 						</a>
 
-						<a class="col-xs" href="http://www.dixneuf.com">
+						<a class="col-xs-6 col-sm" href="http://www.dixneuf.com">
 							<img alt="dixneuf" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__dixneuf.svg" width="89px" height="26px">
 						</a>
 
-						<a class="col-xs" href="http://www.scan-line.fr">
+						<a class="col-xs-6 col-sm" href="http://www.scan-line.fr">
 							<img alt="scan-line" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__scan-line.svg" width="77px" height="41px">
 						</a>
 					</div>
 					<div class="row middle-xs center-xs brands">
-						<a class="col-xs" href="http://www.kal-fire.com/fr">
+						<a class="col-xs-6 col-sm" href="http://www.kal-fire.com/fr">
 							<img alt="kal-fire" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__kal-fire.svg" width="99px" height="31px">
 						</a>
 
-						<a class="col-xs" href="http://nordpeis.fr">
+						<a class="col-xs-6 col-sm" href="http://nordpeis.fr">
 							<img alt="nordpeis" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__nordpeis.svg" width="92px" height="31px">
 						</a>
 
-						<a class="col-xs" href="http://www.olsberg.com">
+						<a class="col-xs-6 col-sm" href="http://www.olsberg.com">
 							<img src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__olsberg.svg" >
 						</a>
 
-						<a class="col-xs" href="http://www.spartherm.com/fr/accueil/">
+						<a class="col-xs-6 col-sm" href="http://www.spartherm.com/fr/accueil/">
 							<img alt="spartherm" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__spartherm.svg" width="126px" height="58px">
 						</a>
-						<a class="col-xs" href="http://stuv.com/fr">
+						<a class="col-xs-6 col-sm" href="http://stuv.com/fr">
 							<img alt="stuv" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__stuv.svg" width="59px" height="19px">
 						</a>
 					</div>
 
 					<div class="row middle-xs center-xs brands">
 
-						<a class="col-xs" href="http://www.thermorossi.fr">
+						<a class="col-xs-6 col-sm" href="http://www.thermorossi.fr">
 							<img alt="thermorossi" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__thermorossi.svg" width="123px" height="18px">
 						</a>
 
-						<a class="col-xs" href="http://www.traforart.net">
+						<a class="col-xs-6 col-sm" href="http://www.traforart.net">
 							<img alt="traforart" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__traforart.svg" width="126px" height="11px">
 						</a>
 
-						<a class="col-xs" href="http://www.tulp.eu">
+						<a class="col-xs-6 col-sm" href="http://www.tulp.eu">
 							<img alt="tulp" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__tulp.svg" width="86px" height="40px">
 						</a>
 					</div>

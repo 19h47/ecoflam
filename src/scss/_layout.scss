@@ -18,10 +18,16 @@
 		{
 			margin: 0 7.4rem;
 		}
+
+		@include to('xs')
+		{
+			margin: 0 2.5rem;
+		}
 		
 		.list-multiple-column
 		{
-			break-inside: avoid;
+			padding-left: 2rem;
+			break-inside: column;
 			column-count: 3;
 			column-gap: 4rem;
 
@@ -33,7 +39,7 @@
 
 		.text-multiple-column
 		{
-			break-inside: avoid;
+			break-inside: column;
 			column-count: 2;
 			column-gap: 2rem;
 
@@ -116,20 +122,11 @@
 	}
 }
 
-
-.page, .archive
+.site-section
 {
-	&-wrapper
+	&__title
 	{
-		background-image: url('#{$img-dir}/svg/ecoflam__background-page.svg');
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: 100% auto;
-	}
-
-	.site-section
-	{
-		&__title
+		&.has-no-count
 		{
 			margin-top: 9rem;
 
@@ -138,6 +135,17 @@
 				display: none;
 			}
 		}
+	}
+}
+
+.archive, .page
+{
+	&-wrapper
+	{
+		background-image: url('#{$img-dir}/svg/ecoflam__background-page.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
 	}
 }
 
@@ -222,7 +230,7 @@
 			color: $text-black;
 			font-size: 1.5rem;
 
-			@include at('s')
+			@include to('s')
 			{
 				margin-bottom: 7rem;
 			}
@@ -345,6 +353,14 @@
 .brands
 {
 	margin: 1.5rem 0;
+	
+	& > a
+	{
+		@include to('xs')
+		{
+			margin-bottom: 7rem;
+		}
+	}
 }
 
 // EVENTS
@@ -357,6 +373,14 @@
 		left: 0;
 		top: 0;
 		right: 0;
+
+		@include at('xs')
+		{
+			bottom: -3rem;
+			left: 0;
+			right: auto;
+			top: auto;
+		}
 	}
 
 	&-buttonPrevious
