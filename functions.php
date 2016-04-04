@@ -54,7 +54,7 @@ function ecoflam_add_custom_assets() {
         // remove wp-embed script from WordPress
         wp_deregister_script( 'wp-embed' );
         // remove contact-form-7 script from CF7
-        wp_deregister_script( 'contact-form-7' );
+        // wp_deregister_script( 'contact-form-7' );
 
         // remove native version of jQuery
         wp_deregister_script( 'jquery' );

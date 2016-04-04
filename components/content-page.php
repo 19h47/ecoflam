@@ -6,15 +6,15 @@
 			<!-- OVERLAY -->
 			<div class="row center-xs middle-xs page-section__overlay-image js-image-overlay">
 				<div class="col-xs-10 page-section__overlay-image__inner">
-					<span class="page-section__overlay-image__close">
+					<span class="page-section__overlay-image__close js-image-close">
 						<img class="svg" src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__close.svg" alt="" width="12px" height="12px">
 					</span>
 					<img class="js-image-overlay-image page-section__overlay-image__img" src="">
 					<p class="js-category page-section__text__category js-image-overlay-category text-left color-grey">
-						Cheminées							
+						YO						
 					</p>
 					<p class="js-title page-section__text__title js-image-overlay-text text-left color-text-black">
-						Morbi vitae mauris sit							
+						YO	
 					</p>	
 				</div>
 			</div>

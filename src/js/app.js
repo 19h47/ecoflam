@@ -18,10 +18,17 @@ var app = {
 
         home.init();
         page.init( 'main' );
-        menu.init();
+        
 	},
 
 	
+    _reload: function(){
+        var _this = this;
+        console.log('Matrix: Reloaded')
+
+        app.init();
+    },
+
 	_initPlugins: function(){
 		var _this = this;
 
@@ -37,17 +44,17 @@ var app = {
     _transitionPage: function( element ){
         var _this = this;
 
-        if( !$( element ).length ){
+        if(!$(element).length){
             return true;
         }
 
-        $( element ).smoothState({
+        $(element).smoothState({
             prefetch: true,
             cacheLength: 3,
             scroll: true,
             onStart: {
                 duration: 500, // Duration of our animation
-                render: function ( $container ) {
+                render: function ($container) {
                     // Add your CSS animation reversing class
 
                     _this._$body.addClass('is-loading');
@@ -55,10 +62,11 @@ var app = {
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
-                    $( $container ).fadeOut();
+                    $($container).fadeOut();
                     
                     // Ensure menu is closed
                     menu.close();
+                    image.close();
                 }
             },
             onProgress: {
@@ -83,22 +91,15 @@ var app = {
                     $container.html($newContent);
                 }
             },
-            onAfter: function( $container, $newContent ){
+            onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload(); 
-                $( $container ).fadeIn();
+                $($container).fadeIn();
                 
 
             }
         });
-    },
-
-    _reload: function(){
-        console.log( 'Matrix: Reloaded' )
-        var _this = this;
-
-        app.init();
-    },
+    }
 };
 
 $(function() {

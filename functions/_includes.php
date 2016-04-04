@@ -9,7 +9,7 @@ include __DIR__ . '/utilities.php';
 // admin functions
 // if ( is_admin() ) include __DIR__ . '/admin.php';
 // theme customizer
-// include __DIR__ . '/customizer.php';
+include __DIR__ . '/customizer.php';
 // custom template tags for this theme
 // include __DIR__ . '/template-tags.php';
 // override TinyMCE in backend

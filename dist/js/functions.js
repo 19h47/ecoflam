@@ -932,10 +932,17 @@ var app = {
 
         home.init();
         page.init( 'main' );
-        menu.init();
+        
 	},
 
 	
+    _reload: function(){
+        var _this = this;
+        console.log('Matrix: Reloaded')
+
+        app.init();
+    },
+
 	_initPlugins: function(){
 		var _this = this;
 
@@ -951,17 +958,17 @@ var app = {
     _transitionPage: function( element ){
         var _this = this;
 
-        if( !$( element ).length ){
+        if(!$(element).length){
             return true;
         }
 
-        $( element ).smoothState({
+        $(element).smoothState({
             prefetch: true,
             cacheLength: 3,
             scroll: true,
             onStart: {
                 duration: 500, // Duration of our animation
-                render: function ( $container ) {
+                render: function ($container) {
                     // Add your CSS animation reversing class
 
                     _this._$body.addClass('is-loading');
@@ -969,10 +976,11 @@ var app = {
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
-                    $( $container ).fadeOut();
+                    $($container).fadeOut();
                     
                     // Ensure menu is closed
                     menu.close();
+                    image.close();
                 }
             },
             onProgress: {
@@ -997,22 +1005,15 @@ var app = {
                     $container.html($newContent);
                 }
             },
-            onAfter: function( $container, $newContent ){
+            onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload(); 
-                $( $container ).fadeIn();
+                $($container).fadeIn();
                 
 
             }
         });
-    },
-
-    _reload: function(){
-        console.log( 'Matrix: Reloaded' )
-        var _this = this;
-
-        app.init();
-    },
+    }
 };
 
 $(function() {
@@ -1172,10 +1173,6 @@ var home = {
 var page = {
 	// PRIVATE
 	// Here go the private variables
-	_classImageOpen: 'image--is-open',
-    _body: $(window),
-    _toggleImage: 'toggle.image',
-    _box: '.js-image-overlay',
     _waypoints: null,
     _$sections: null,
 
@@ -1189,7 +1186,6 @@ var page = {
 
 	// FUNCTIONS
 	init: function( ) {
-
         this._$sections = $( '.site-section' );
 
 		this._setContents();
@@ -1206,7 +1202,6 @@ var page = {
 	_initPlugins: function(){
 		var _this = this;		
 		
-		_this.imageZoom();
 		_this.inlineSVG();
 
 		this._waypoints = this._$sections.waypoint({
@@ -1249,79 +1244,8 @@ var page = {
             return;
         }
 
-        TweenMax.set( this._$sections.find('.js-inner'), { y: 115, autoAlpha: 0 } );
+        TweenMax.set(this._$sections.find('.js-inner'), {y: 115, autoAlpha: 0});
     },
-
-	imageZoom: function(){
-		var _this = this;
-
-	    // TOGGLE MENU RESPONSIVE
-	    $('.js-toggle-image').on('click', function(e){
-	    	
-	    	e.stopPropagation();
-
-	        // GET URL
-	        var backgroundImage = 
-	        	$(this)
-	        		.children()
-					.css("background-image")
-					.replace( /.*\s?url\([\'\"]?/, '')
-					.replace( /[\'\"]?\).*/, ''),
-
-				// GET TITLE
-				_title = $( this ).children('.js-title').text(),
-
-				// GET CAT
-				_category = $( this ).children( '.js-category').text();
-
-	    	if( !$(this).children().attr('style') ){
-
-	    		$(_this._box).toggleClass('show');
-				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-text').append( _title );
-				$('.js-image-overlay-category').append( _category );
-
-				// return;
-
-			} else {
-
-				$(_this._box).toggleClass( 'show' );
-				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-text' ).append( _title );
-				$( '.js-image-overlay-category' ).append( _category );
-			}
-	        
-	       
-	        $(this).trigger( _this._toggleImage );
-
-	    });
-
-	    _this._body
-
-	        .on( _this._toggleImage , function(e) {
-
-	            // console.log( $( e.target ) );
-
-	            $('body').addClass( _this._classImageOpen );
-		        
-
-
-	        })  
-
-	        .on('click', function(e){
-	        
-		        // e.preventDefault();
-
-		        // console.log( e.target );
-
-		        if( $('body' ).hasClass( _this._classImageOpen ) ) {
-
-		            $(_this._box).removeClass('show');
-		            $(this).trigger( _this._toggleImage );
-
-		        } 
-		    });
-	},
 
 	/*
      * Replace all SVG images with inline SVG
@@ -1382,7 +1306,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = $( 'body' );
+    	this._$body = $('body');
 
     	this._initEvents();
     },
@@ -1391,43 +1315,39 @@ var menu = {
     	var _this = this;
 
     	// TOGGLE MENU RESPONSIVE
-	    $( '#js-toggle-menu' ).on( 'click', function( e ) {
+        // Between click and function, we can pass a sort of filter selector
+	    $(document).on('click', '#js-toggle-menu', function(e) {
 	        // AVOID PROPAGATION OF EVENT IN DOM
 	        e.stopPropagation();
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        $( this ).trigger( _this._toggleMenu );
+	        $(this).trigger(_this._toggleMenu);
 	    });
 
-
 	    this._$body
-	        .on( this._toggleMenu , function( e ) {
-                
-                // console.log( $( e.target ) );
-                // console.log( _this._$body );
-                // console.log( _this._classMenuOpen );
+	        .on(this._toggleMenu, function(e) {
 
-	            _this._$body.toggleClass( _this._classMenuOpen );
+	            _this._$body.toggleClass(_this._classMenuOpen);
                 // $('body').toggleClass('menu--is-open');
 	            
                 // _this.mobileAnimation();
 
-
 	        })  
-	        .on( 'click', function( e ) {
+	        .on('click', function(e) {
 				e.preventDefault();
                 // console.log( e.target );
 
-	            if ( _this._$body.hasClass( _this._classMenuOpen ) && !$( e.target ).closest( '.site-header__nav' ).length ) {
+	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
 	                
-	                _this._$body.trigger( _this._toggleMenu );
+	                _this.close();
 	        	}
 	    });
     },
-    close: function( ) {
 
-    	this._$body.removeClass( this._classMenuOpen );
+    close: function() {
+
+    	this._$body.removeClass(this._classMenuOpen);
     },
 
     // MOBILE MENU ANIMATION
@@ -1465,3 +1385,96 @@ $( function() {
     menu.init();
 
 });
+var image = {
+
+	_classImageOpen: 'image--is-open',
+	_toggleImage: 'toggle.image',
+
+	_$body: null,
+
+	init: function(){
+
+		this._$body = $('body');
+
+		this._initEvents();
+	},
+
+	_initEvents: function(){
+		var _this = this;
+
+	    // TOGGLE IMAGE
+	    $(document).on('click', '.js-toggle-image', function(e){
+	    	
+	    	e.stopPropagation();
+	    	$(this).trigger( _this._toggleImage );
+
+	        // GET URL http://stackoverflow.com/a/23784236
+	        var backgroundImage = 
+	        	$(this)
+	        		.children()
+					.css("background-image")
+					.replace( /.*\s?url\([\'\"]?/, '')
+					.replace( /[\'\"]?\).*/, ''),
+
+				// GET TITLE
+				_title = $(this ).children('.js-title').text(),
+
+				// GET CAT
+				_category = $( this ).children( '.js-category').text();
+
+	    	if( !$(this).children().attr('style') ){
+
+	    		$(_this._box).toggleClass('show');
+				$('.js-image-overlay-image').hide();
+				$('.js-image-overlay-text').empty().append( _title );
+				$('.js-image-overlay-category').empty().append( _category );
+
+				// return;
+
+			} else {
+
+				$(_this._box).toggleClass( 'show' );
+				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
+				$( '.js-image-overlay-text' ).empty().append( _title );
+				$( '.js-image-overlay-category' ).empty().append( _category );
+			}
+	        
+	    });
+
+	    _this._$body
+	        .on( this._toggleImage , function(e) {
+
+	            // console.log( $( e.target ) );
+
+	            _this._$body.toggleClass(_this._classImageOpen);
+		     
+	        })
+
+	        .on( 'click', '.js-image-close', function(e){
+	        	_this.close();
+	        }) 
+
+	        .on('click', function(e){
+	        
+		        // e.preventDefault();
+
+		        // console.log( e.target );
+
+		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
+
+		            _this.close();
+
+		        } 
+		    });
+	},
+
+	close: function(){
+		this._$body.removeClass(this._classImageOpen);
+	}
+};
+
+$(function(){
+
+	image.init();
+
+})

@@ -3,10 +3,6 @@
 var page = {
 	// PRIVATE
 	// Here go the private variables
-	_classImageOpen: 'image--is-open',
-    _body: $(window),
-    _toggleImage: 'toggle.image',
-    _box: '.js-image-overlay',
     _waypoints: null,
     _$sections: null,
 
@@ -20,7 +16,6 @@ var page = {
 
 	// FUNCTIONS
 	init: function( ) {
-
         this._$sections = $( '.site-section' );
 
 		this._setContents();
@@ -37,7 +32,6 @@ var page = {
 	_initPlugins: function(){
 		var _this = this;		
 		
-		_this.imageZoom();
 		_this.inlineSVG();
 
 		this._waypoints = this._$sections.waypoint({
@@ -80,79 +74,8 @@ var page = {
             return;
         }
 
-        TweenMax.set( this._$sections.find('.js-inner'), { y: 115, autoAlpha: 0 } );
+        TweenMax.set(this._$sections.find('.js-inner'), {y: 115, autoAlpha: 0});
     },
-
-	imageZoom: function(){
-		var _this = this;
-
-	    // TOGGLE MENU RESPONSIVE
-	    $('.js-toggle-image').on('click', function(e){
-	    	
-	    	e.stopPropagation();
-
-	        // GET URL
-	        var backgroundImage = 
-	        	$(this)
-	        		.children()
-					.css("background-image")
-					.replace( /.*\s?url\([\'\"]?/, '')
-					.replace( /[\'\"]?\).*/, ''),
-
-				// GET TITLE
-				_title = $( this ).children('.js-title').text(),
-
-				// GET CAT
-				_category = $( this ).children( '.js-category').text();
-
-	    	if( !$(this).children().attr('style') ){
-
-	    		$(_this._box).toggleClass('show');
-				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-text').append( _title );
-				$('.js-image-overlay-category').append( _category );
-
-				// return;
-
-			} else {
-
-				$(_this._box).toggleClass( 'show' );
-				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-text' ).append( _title );
-				$( '.js-image-overlay-category' ).append( _category );
-			}
-	        
-	       
-	        $(this).trigger( _this._toggleImage );
-
-	    });
-
-	    _this._body
-
-	        .on( _this._toggleImage , function(e) {
-
-	            // console.log( $( e.target ) );
-
-	            $('body').addClass( _this._classImageOpen );
-		        
-
-
-	        })  
-
-	        .on('click', function(e){
-	        
-		        // e.preventDefault();
-
-		        // console.log( e.target );
-
-		        if( $('body' ).hasClass( _this._classImageOpen ) ) {
-
-		            $(_this._box).removeClass('show');
-		            $(this).trigger( _this._toggleImage );
-
-		        } 
-		    });
-	},
 
 	/*
      * Replace all SVG images with inline SVG

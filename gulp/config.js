@@ -44,7 +44,8 @@ module.exports = {
             src + '/js/app.js',
             src + '/js/home.js',
             src + '/js/page.js',
-            src + '/js/menu.js'
+            src + '/js/menu.js',
+            src + '/js/image.js',
         ],
         // Source to watch
         srcWatch : src + '/js/*.js',

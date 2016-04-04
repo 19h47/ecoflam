@@ -6,7 +6,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = $( 'body' );
+    	this._$body = $('body');
 
     	this._initEvents();
     },
@@ -15,43 +15,39 @@ var menu = {
     	var _this = this;
 
     	// TOGGLE MENU RESPONSIVE
-	    $( '#js-toggle-menu' ).on( 'click', function( e ) {
+        // Between click and function, we can pass a sort of filter selector
+	    $(document).on('click', '#js-toggle-menu', function(e) {
 	        // AVOID PROPAGATION OF EVENT IN DOM
 	        e.stopPropagation();
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        $( this ).trigger( _this._toggleMenu );
+	        $(this).trigger(_this._toggleMenu);
 	    });
 
-
 	    this._$body
-	        .on( this._toggleMenu , function( e ) {
-                
-                // console.log( $( e.target ) );
-                // console.log( _this._$body );
-                // console.log( _this._classMenuOpen );
+	        .on(this._toggleMenu, function(e) {
 
-	            _this._$body.toggleClass( _this._classMenuOpen );
+	            _this._$body.toggleClass(_this._classMenuOpen);
                 // $('body').toggleClass('menu--is-open');
 	            
                 // _this.mobileAnimation();
 
-
 	        })  
-	        .on( 'click', function( e ) {
+	        .on('click', function(e) {
 				e.preventDefault();
                 // console.log( e.target );
 
-	            if ( _this._$body.hasClass( _this._classMenuOpen ) && !$( e.target ).closest( '.site-header__nav' ).length ) {
+	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
 	                
-	                _this._$body.trigger( _this._toggleMenu );
+	                _this.close();
 	        	}
 	    });
     },
-    close: function( ) {
 
-    	this._$body.removeClass( this._classMenuOpen );
+    close: function() {
+
+    	this._$body.removeClass(this._classMenuOpen);
     },
 
     // MOBILE MENU ANIMATION
