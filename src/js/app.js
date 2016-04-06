@@ -17,7 +17,7 @@ var app = {
 		this._initPlugins();
 
         home.init();
-        page.init( 'main' );
+        page.init('main');
         
 	},
 
@@ -93,8 +93,10 @@ var app = {
             },
             onAfter: function($container, $newContent){
                 // Reload script
-                _this._reload(); 
+                _this._reload();
                 $($container).fadeIn();
+
+                console.log( information.template_directory_uri );
                 
 
             }

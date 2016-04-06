@@ -931,7 +931,7 @@ var app = {
 		this._initPlugins();
 
         home.init();
-        page.init( 'main' );
+        page.init('main');
         
 	},
 
@@ -1007,8 +1007,10 @@ var app = {
             },
             onAfter: function($container, $newContent){
                 // Reload script
-                _this._reload(); 
+                _this._reload();
                 $($container).fadeIn();
+
+                console.log( information.template_directory_uri );
                 
 
             }
@@ -1407,8 +1409,8 @@ var image = {
 	    // TOGGLE IMAGE
 	    $(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	e.stopPropagation();
-	    	$(this).trigger( _this._toggleImage );
+	    	
+	    	
 
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
@@ -1416,20 +1418,20 @@ var image = {
 	        		.children()
 					.css("background-image")
 					.replace( /.*\s?url\([\'\"]?/, '')
-					.replace( /[\'\"]?\).*/, ''),
+					.replace( /[\'\"]?\).*/, '');
 
 				// GET TITLE
-				_title = $(this ).children('.js-title').text(),
+				var _title = $(this).find('.js-title').text();
 
 				// GET CAT
-				_category = $( this ).children( '.js-category').text();
+				var _category = $(this).find( '.js-category').text();
 
 	    	if( !$(this).children().attr('style') ){
 
 	    		$(_this._box).toggleClass('show');
 				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-text').empty().append( _title );
-				$('.js-image-overlay-category').empty().append( _category );
+				$('.js-image-overlay-text').empty().append(_title);
+				$('.js-image-overlay-category').empty().append(_category);
 
 				// return;
 
@@ -1437,10 +1439,11 @@ var image = {
 
 				$(_this._box).toggleClass( 'show' );
 				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-text' ).empty().append( _title );
-				$( '.js-image-overlay-category' ).empty().append( _category );
+				$( '.js-image-overlay-text' ).html(_title);
+				$( '.js-image-overlay-category' ).html(_category);
 			}
-	        
+	     e.stopPropagation();  
+	     $(this).trigger( _this._toggleImage ); 
 	    });
 
 	    _this._$body
@@ -1479,4 +1482,4 @@ $(function(){
 
 	image.init();
 
-})
+});

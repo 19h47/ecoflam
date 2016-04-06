@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html <?php html_class( 'no-js' ) ?> <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<?php wp_head(); ?>
+
 	</head>
 	<body>
 		<div id="js-wrapper">

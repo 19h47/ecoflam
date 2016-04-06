@@ -53,6 +53,7 @@ function ecoflam_add_custom_assets() {
         
         // remove wp-embed script from WordPress
         wp_deregister_script( 'wp-embed' );
+
         // remove contact-form-7 script from CF7
         // wp_deregister_script( 'contact-form-7' );
 
@@ -70,12 +71,19 @@ function ecoflam_add_custom_assets() {
 
         // Global functions
         wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'gsap-tweenmax', 'gsap-timelinemax' ), null, true );
-        // wp_localize_script( 'ecoflam-functions', 'wp', array(
-        //     'template_directory_uri'    => get_template_directory_uri(),
-        //     'home_url'                  => home_url( '/' ),
-        //     'base_url'                  => site_url(),
-        //     'is_front_page'             => is_front_page(),
-        // ) );
+        
+        wp_localize_script( 
+            'ecoflam-functions', 
+            'information', 
+            array(
+                'template_directory_uri'    => get_template_directory_uri(),
+                'home_url'                  => home_url( '/' ),
+                'base_url'                  => site_url(),
+                'is_front_page'             => is_front_page(),
+                'page_slug'                 => basename( get_permalink() 
+            ),
+        ));
+
         // wp_register_script( 'ecoflam-app', get_template_directory_uri() . '/dist/js/min/functions.min.js',  array( 'jquery' ), null, true );
 
         // homepage
@@ -91,7 +99,6 @@ function ecoflam_add_custom_assets() {
 		// app
 		// should always be the last
         // wp_register_script( 'ecoflam-app', get_template_directory_uri() . '/js/min/functions.min.js', array( 'ecoflam-home', 'ecoflam-projects', 'ecoflam-project', 'ecoflam-contact', 'ecoflam-404' ), null, true );
-
 
         // then load -----------------------------------------------------------
 
