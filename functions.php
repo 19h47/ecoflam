@@ -54,12 +54,12 @@ function ecoflam_add_custom_assets() {
         // remove wp-embed script from WordPress
         wp_deregister_script( 'wp-embed' );
 
-        // remove contact-form-7 script from CF7
-        // wp_deregister_script( 'contact-form-7' );
+        // Remove contact-form-7 script from CF7
+        wp_deregister_script( 'contact-form-7' );
 
-        // remove native version of jQuery
+        // Remove native version of jQuery
         wp_deregister_script( 'jquery' );
-        // use custom CDN version
+        // Use custom CDN version instead
         wp_register_script( 'jquery', '//code.jquery.com/jquery-2.2.0.min.js', false, null, true );
 
         // GSAP - https://greensock.com/tweenmax
@@ -85,6 +85,7 @@ function ecoflam_add_custom_assets() {
 
         wp_enqueue_style( 'ecoflam-global' );
         wp_enqueue_script( 'ecoflam-functions' );
+
 
     }
 }

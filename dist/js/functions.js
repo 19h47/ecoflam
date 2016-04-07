@@ -978,9 +978,9 @@ var app = {
 
                     $($container).fadeOut();
                     
-                    image.close();
                     // Ensure menu is closed
                     menu.close();
+                    image.close();
                 }
             },
             onProgress: {
@@ -1009,13 +1009,12 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                
-                // if( $('div.wpcf7 > form').length ){
-                //     console.log('wpcf7 selector exist');
-                //     // $('div.wpcf7 > form').wpcf7InitForm();
-                // } else {
-                //     console.log('wpcf7 selector doesn\'t exist');
-                // }
+                if( $('div.wpcf7 > form').length ){
+                    console.log('wpcf7 selector exist');
+                    // $('div.wpcf7 > form').wpcf7InitForm();
+                } else {
+                    console.log('wpcf7 selector doesn\'t exist');
+                }
 
                 $($container).fadeIn();
 
@@ -1197,7 +1196,7 @@ var page = {
 
 	// FUNCTIONS
 	init: function( ) {
-        this._$sections = $( '.site-section' );
+        this._$sections = jQuery( '.site-section' );
 
 		this._setContents();
 
@@ -1236,7 +1235,7 @@ var page = {
 		
 		var _this = this;
 
-        var $content = $( section ).find('.js-inner');
+        var $content = jQuery( section ).find('.js-inner');
 
         TweenMax.to( 
         	$content, 
@@ -1263,17 +1262,17 @@ var page = {
      * http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
      */
     inlineSVG: function() {
-        $('img.svg').each(function(){
-            var $img = $(this);
+        jQuery('img.svg').each(function(){
+            var $img = jQuery(this);
             var imgID = $img.attr('id');
             var imgClass = $img.attr('class');
             var imgURL = $img.attr('src');
             var imgWidth = $img.attr('width');
             var imgHeight = $img.attr('height');
 
-            $.get(imgURL, function(data) {
+            jQuery.get(imgURL, function(data) {
                 // Get the SVG tag, ignore the rest
-                var $svg = $(data).find('svg');
+                var $svg = jQuery(data).find('svg');
 
                 // Add replaced image's ID to the new SVG
                 if (typeof imgID !== 'undefined') {
@@ -1306,14 +1305,9 @@ var page = {
             }, 'xml');
 
         });
-    }	
+    }
+	
 };
-
-$( function() {
-
-    page.init();
-
-});
 var menu = {
 
 	_classMenuOpen: 'menu--is-open',
@@ -1322,7 +1316,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = $('body');
+    	this._$body = jQuery('body');
 
     	this._initEvents();
     },
@@ -1332,13 +1326,13 @@ var menu = {
 
     	// TOGGLE MENU RESPONSIVE
         // Between click and function, we can pass a sort of filter selector
-	    $(document).on('click', '#js-toggle-menu', function(e) {
+	    jQuery(document).on('click', '#js-toggle-menu', function(e) {
 	        // AVOID PROPAGATION OF EVENT IN DOM
 	        e.stopPropagation();
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        $(this).trigger(_this._toggleMenu);
+	        jQuery(this).trigger(_this._toggleMenu);
 	    });
 
 	    this._$body
@@ -1356,7 +1350,7 @@ var menu = {
                 // console.log( e.target );
 
 	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
-	                // e.preventDefault();
+	                e.preventDefault();
 	                _this.close();
 	        	}
 	    });
@@ -1397,7 +1391,7 @@ var menu = {
     }
 };
 
-$( function() {
+jQuery( function() {
 
     menu.init();
 
@@ -1411,7 +1405,7 @@ var image = {
 
 	init: function(){
 
-		this._$body = $('body');
+		this._$body = jQuery('body');
 
 		this._initEvents();
 	},
@@ -1420,44 +1414,43 @@ var image = {
 		var _this = this;
 
 	    // TOGGLE IMAGE
-	    $(document).on('click', '.js-toggle-image', function(e){
+	    jQuery(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	e.stopPropagation();
-	    	$(this).trigger( _this._toggleImage ); 
+	    	
 	    	
 
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
-	        	$(this)
+	        	jQuery(this)
 	        		.children()
 					.css("background-image")
 					.replace( /.*\s?url\([\'\"]?/, '')
 					.replace( /[\'\"]?\).*/, '');
 
 				// GET TITLE
-				var _title = $(this).find('.js-title').text();
+				var _title = jQuery(this).find('.js-title').text();
 
 				// GET CAT
-				var _category = $(this).find( '.js-category').text();
+				var _category = jQuery(this).find( '.js-category').text();
 
-	    	if( !$(this).children().attr('style') ){
+	    	if( !jQuery(this).children().attr('style') ){
 
-	    		$(_this._box).toggleClass('show');
-				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-text').empty().append(_title);
-				$('.js-image-overlay-category').empty().append(_category);
+	    		jQuery(_this._box).toggleClass('show');
+				jQuery('.js-image-overlay-image').hide();
+				jQuery('.js-image-overlay-text').empty().append(_title);
+				jQuery('.js-image-overlay-category').empty().append(_category);
 
 				// return;
 
 			} else {
 
-				$(_this._box).toggleClass( 'show' );
-				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-text' ).html(_title);
-				$( '.js-image-overlay-category' ).html(_category);
+				jQuery(_this._box).toggleClass( 'show' );
+				jQuery( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
+				jQuery( '.js-image-overlay-text' ).html(_title);
+				jQuery( '.js-image-overlay-category' ).html(_category);
 			}
-	       
-	     
+	     e.stopPropagation();  
+	     jQuery(this).trigger( _this._toggleImage ); 
 	    });
 
 	    _this._$body
@@ -1475,9 +1468,9 @@ var image = {
 
 	        .on('click', function(e){
 	        
+		        // e.preventDefault();
 
 		        // console.log( e.target );
-		        	// e.preventDefault();
 
 		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
 
@@ -1488,12 +1481,12 @@ var image = {
 	},
 
 	close: function(){
-		
-			this._$body.removeClass(this._classImageOpen);
-		
+		this._$body.removeClass(this._classImageOpen);
 	}
 };
 
-$(function(){
+jQuery(function(){
+
 	image.init();
+
 });

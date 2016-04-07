@@ -7,7 +7,7 @@ var image = {
 
 	init: function(){
 
-		this._$body = $('body');
+		this._$body = jQuery('body');
 
 		this._initEvents();
 	},
@@ -16,44 +16,43 @@ var image = {
 		var _this = this;
 
 	    // TOGGLE IMAGE
-	    $(document).on('click', '.js-toggle-image', function(e){
+	    jQuery(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	e.stopPropagation();
-	    	$(this).trigger( _this._toggleImage ); 
+	    	
 	    	
 
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
-	        	$(this)
+	        	jQuery(this)
 	        		.children()
 					.css("background-image")
 					.replace( /.*\s?url\([\'\"]?/, '')
 					.replace( /[\'\"]?\).*/, '');
 
 				// GET TITLE
-				var _title = $(this).find('.js-title').text();
+				var _title = jQuery(this).find('.js-title').text();
 
 				// GET CAT
-				var _category = $(this).find( '.js-category').text();
+				var _category = jQuery(this).find( '.js-category').text();
 
-	    	if( !$(this).children().attr('style') ){
+	    	if( !jQuery(this).children().attr('style') ){
 
-	    		$(_this._box).toggleClass('show');
-				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-text').empty().append(_title);
-				$('.js-image-overlay-category').empty().append(_category);
+	    		jQuery(_this._box).toggleClass('show');
+				jQuery('.js-image-overlay-image').hide();
+				jQuery('.js-image-overlay-text').empty().append(_title);
+				jQuery('.js-image-overlay-category').empty().append(_category);
 
 				// return;
 
 			} else {
 
-				$(_this._box).toggleClass( 'show' );
-				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-text' ).html(_title);
-				$( '.js-image-overlay-category' ).html(_category);
+				jQuery(_this._box).toggleClass( 'show' );
+				jQuery( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
+				jQuery( '.js-image-overlay-text' ).html(_title);
+				jQuery( '.js-image-overlay-category' ).html(_category);
 			}
-	       
-	     
+	     e.stopPropagation();  
+	     jQuery(this).trigger( _this._toggleImage ); 
 	    });
 
 	    _this._$body
@@ -71,9 +70,9 @@ var image = {
 
 	        .on('click', function(e){
 	        
+		        // e.preventDefault();
 
 		        // console.log( e.target );
-		        	// e.preventDefault();
 
 		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
 
@@ -84,12 +83,12 @@ var image = {
 	},
 
 	close: function(){
-		
-			this._$body.removeClass(this._classImageOpen);
-		
+		this._$body.removeClass(this._classImageOpen);
 	}
 };
 
-$(function(){
+jQuery(function(){
+
 	image.init();
+
 });

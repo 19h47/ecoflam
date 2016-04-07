@@ -80,6 +80,11 @@
 				</div>
 			</footer>
 		</div><!-- /#js-wrapper -->
+		    <?php
+		    if ( is_page('contact') && function_exists( 'wpcf7_enqueue_scripts' ) ) {
+		        wpcf7_enqueue_scripts();
+		    }
+		?>
 		<?php wp_footer(); ?>
 	</body><!-- /body -->
 </html><!-- /html -->
