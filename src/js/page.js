@@ -125,6 +125,11 @@ var page = {
             }, 'xml');
 
         });
-    }
-	
+    }	
 };
+
+$( function() {
+
+    page.init();
+
+});

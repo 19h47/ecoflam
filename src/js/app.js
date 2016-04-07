@@ -64,9 +64,9 @@ var app = {
 
                     $($container).fadeOut();
                     
+                    image.close();
                     // Ensure menu is closed
                     menu.close();
-                    image.close();
                 }
             },
             onProgress: {
@@ -95,12 +95,13 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                if( $('div.wpcf7 > form').length ){
-                    console.log('wpcf7 selector exist');
-                    // $('div.wpcf7 > form').wpcf7InitForm();
-                } else {
-                    console.log('wpcf7 selector doesn\'t exist');
-                }
+                
+                // if( $('div.wpcf7 > form').length ){
+                //     console.log('wpcf7 selector exist');
+                //     // $('div.wpcf7 > form').wpcf7InitForm();
+                // } else {
+                //     console.log('wpcf7 selector doesn\'t exist');
+                // }
 
                 $($container).fadeIn();
 

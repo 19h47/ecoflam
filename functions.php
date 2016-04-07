@@ -67,7 +67,7 @@ function ecoflam_add_custom_assets() {
         wp_register_script( 'gsap-timelinemax', '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js', false, null, true );
 
         // Global functions
-        wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'gsap-tweenmax', 'gsap-timelinemax', 'contact-form-7' ), null, true );
+        wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'gsap-tweenmax', 'gsap-timelinemax' ), null, true );
         
         wp_localize_script( 
             'ecoflam-functions', 
@@ -88,6 +88,6 @@ function ecoflam_add_custom_assets() {
 
     }
 }
-add_action( 'wp_enqueue_scripts', 'ecoflam_add_custom_assets', 12 );
+add_action( 'wp_enqueue_scripts', 'ecoflam_add_custom_assets', 11 );
 
 // -----------------------------------------------------------------------------

@@ -37,7 +37,9 @@
 								</div>
 							</div>
 
-							<button id="js-toggle-menu" class="hidden-from-m middle-xs col-xs-3 site-header__nav__button-open">Menu</button>
+							<button id="js-toggle-menu" class="hidden-from-m middle-xs col-xs-3 site-header__nav__button-open">
+								Menu
+							</button>
 
 							<nav class="site-header__nav col-xs-12 col-sm-8 end-xs">
 									<button id="js-menu-close" class="hidden-from-m site-header__nav__button-close">Menu</button>
@@ -59,19 +61,17 @@
 
 						<?php if( is_front_page() ){ ?>
 
-						<div class="site-header__content inner">
-							<div class="inner-wrapper row center-xs">
-								<div class="box">
+						<div class="site-header__content">
+							<div class="inner-wrapper row center-xs top-xs">
 									
-									<div class="col-xs-12">
-										<h1 class="site-header__content__title">
-											<span>Faites</span>
-											brûler la flamme
-											<span>de vos envies</span>
-										</h1>						
-									</div>
-
+								<div class="col-xs-12">
+									<h1 class="site-header__content__title">
+										<span>Faites</span>
+										brûler la flamme
+										<span>de vos envies</span>
+									</h1>						
 								</div>
+								
 							</div>
 						</div>
 

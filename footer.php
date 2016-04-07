@@ -26,32 +26,32 @@
 										</span>
 										<br>
 										<br>
-										<?php echo nl2br( get_option( 'adresses_saintpierredescorps' ) ); ?>
+										<?php echo nl2br( get_option( 'contact_information_saintpierredescorps' ) ); ?>
 				 						<br>
 									</a>
 									<br>
 									<!-- http://stackoverflow.com/a/2109339 -->
-									Tél. : <a href="tel:<?php echo preg_replace('/\s+/', '', get_option( 'addresses_saintpierredescorps_phone' )); ?>"><?php echo get_option( 'addresses_saintpierredescorps_phone' ); ?></a><br> 
-									Mail : <a href="mailto:ecoflam@wanadoo.fr">ecoflam.stpierre@gmail.com</a><br>
+									Tél. : <a href="tel:<?php echo preg_replace('/\s+/', '', get_option( 'contact_information_saintpierredescorps_phone' )); ?>"><?php echo get_option( 'contact_information_saintpierredescorps_phone' ); ?></a><br> 
+									Mail : <a href="mailto:<?php echo get_option( 'contact_information_saintpierredescorps_email' ); ?>"><?php echo get_option( 'contact_information_saintpierredescorps_email' ); ?></a><br>
 									<br>
 									</span>
 									<span class="hidden-to-m">—</span> <br>
 									<br>
 								</div>
-								<div class="col-xs-12 col-sm-6 site-footer__text__inner">
+								<div class="col-xs-12 col-sm-6 col-md-12 site-footer__text__inner">
 									<a href="https://www.google.fr/maps/place/105+Avenue+de+Tours,+37400+Amboise/@47.4050532,0.9586584,17z/data=!3m1!4b1!4m2!3m1!1s0x47fcca5f6928339d:0x930d62f145d34e9f" target="_blank">
 										<span class="color-red uppercase">
 											Amboise
 										</span>
 										<br>
 										<br>
-										<?php echo nl2br( get_option( 'adresses_amboise' ) ); ?>
+										<?php echo nl2br( get_option( 'contact_information_amboise' ) ); ?>
 										<br>
 									</a>
 									<br>
 									<!-- http://stackoverflow.com/a/2109339 -->
-									Tél. : <a href="tel:<?php echo preg_replace('/\s+/', '', get_option( 'addresses_amboise_phone' )); ?>"><?php echo get_option( 'addresses_amboise_phone' ); ?></a><br> 
-									Mail : <a href="mailto:ecoflam@wanadoo.fr">mailto:ecoflam@wanadoo.fr</a><br>
+									Tél. : <a href="tel:<?php echo preg_replace('/\s+/', '', get_option( 'contact_information_amboise_phone' )); ?>"><?php echo get_option( 'contact_information_amboise_phone' ); ?></a><br> 
+									Mail : <a href="mailto:<?php echo get_option( 'contact_information_amboise_email' ); ?>"><?php echo get_option( 'contact_information_amboise_email' ); ?></a><br>
 								</div>
 							</div>
 						</div>
@@ -73,7 +73,7 @@
 					<div class="row inner-wrapper js-inner center-xs">
 						<div class="col-xs-12">
 							<p class="site-footer__copyright__text">
-								© 2016 <a href="<?php echo home_url( '/' ) ?>" class="hoverable color-white">ECOFLAM</a> — Tous droits réservés  |  <a class="hoverable" href="<?php echo home_url(  ) ?>/mentions-legales">Mentions légales</a>  |  Conception : <a class="hoverable color-white" href="http://www.mokacreation.com/" target='_blank'>MOKA creation</a> — <a class="hoverable color-white" href="http://www.19h47.fr" target='_blank'>19h47</a>
+								© 2016 <a href="<?php echo home_url( '/' ) ?>" class="hoverable uppercase color-white"><?php echo get_bloginfo ('name'); ?></a> — Tous droits réservés  |  <a class="hoverable" href="<?php echo home_url(  ) ?>/mentions-legales">Mentions légales</a>  |  Conception : <a class="hoverable color-white" href="http://www.mokacreation.com/" target='_blank'>MOKA creation</a> — <a class="hoverable color-white" href="http://www.19h47.fr" target='_blank'>19h47</a>
 							</p>
 						</div>
 					</div>

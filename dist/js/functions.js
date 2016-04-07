@@ -978,9 +978,9 @@ var app = {
 
                     $($container).fadeOut();
                     
+                    image.close();
                     // Ensure menu is closed
                     menu.close();
-                    image.close();
                 }
             },
             onProgress: {
@@ -1009,12 +1009,13 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                if( $('div.wpcf7 > form').length ){
-                    console.log('wpcf7 selector exist');
-                    // $('div.wpcf7 > form').wpcf7InitForm();
-                } else {
-                    console.log('wpcf7 selector doesn\'t exist');
-                }
+                
+                // if( $('div.wpcf7 > form').length ){
+                //     console.log('wpcf7 selector exist');
+                //     // $('div.wpcf7 > form').wpcf7InitForm();
+                // } else {
+                //     console.log('wpcf7 selector doesn\'t exist');
+                // }
 
                 $($container).fadeIn();
 
@@ -1305,9 +1306,14 @@ var page = {
             }, 'xml');
 
         });
-    }
-	
+    }	
 };
+
+$( function() {
+
+    page.init();
+
+});
 var menu = {
 
 	_classMenuOpen: 'menu--is-open',
@@ -1350,7 +1356,7 @@ var menu = {
                 // console.log( e.target );
 
 	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
-	                e.preventDefault();
+	                // e.preventDefault();
 	                _this.close();
 	        	}
 	    });
@@ -1416,7 +1422,8 @@ var image = {
 	    // TOGGLE IMAGE
 	    $(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	
+	    	e.stopPropagation();
+	    	$(this).trigger( _this._toggleImage ); 
 	    	
 
 	        // GET URL http://stackoverflow.com/a/23784236
@@ -1449,8 +1456,8 @@ var image = {
 				$( '.js-image-overlay-text' ).html(_title);
 				$( '.js-image-overlay-category' ).html(_category);
 			}
-	     e.stopPropagation();  
-	     $(this).trigger( _this._toggleImage ); 
+	       
+	     
 	    });
 
 	    _this._$body
@@ -1468,9 +1475,9 @@ var image = {
 
 	        .on('click', function(e){
 	        
-		        // e.preventDefault();
 
 		        // console.log( e.target );
+		        	// e.preventDefault();
 
 		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
 
@@ -1481,12 +1488,12 @@ var image = {
 	},
 
 	close: function(){
-		this._$body.removeClass(this._classImageOpen);
+		
+			this._$body.removeClass(this._classImageOpen);
+		
 	}
 };
 
 $(function(){
-
 	image.init();
-
 });

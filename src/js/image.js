@@ -18,7 +18,8 @@ var image = {
 	    // TOGGLE IMAGE
 	    $(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	
+	    	e.stopPropagation();
+	    	$(this).trigger( _this._toggleImage ); 
 	    	
 
 	        // GET URL http://stackoverflow.com/a/23784236
@@ -51,8 +52,8 @@ var image = {
 				$( '.js-image-overlay-text' ).html(_title);
 				$( '.js-image-overlay-category' ).html(_category);
 			}
-	     e.stopPropagation();  
-	     $(this).trigger( _this._toggleImage ); 
+	       
+	     
 	    });
 
 	    _this._$body
@@ -70,9 +71,9 @@ var image = {
 
 	        .on('click', function(e){
 	        
-		        // e.preventDefault();
 
 		        // console.log( e.target );
+		        	// e.preventDefault();
 
 		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
 
@@ -83,12 +84,12 @@ var image = {
 	},
 
 	close: function(){
-		this._$body.removeClass(this._classImageOpen);
+		
+			this._$body.removeClass(this._classImageOpen);
+		
 	}
 };
 
 $(function(){
-
 	image.init();
-
 });

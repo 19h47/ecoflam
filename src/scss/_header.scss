@@ -76,8 +76,13 @@
 					height: 1.6rem;
 					width: 2rem;
 					content: "";
-					background-image: url('#{$img-dir}/svg/ecoflam__menu-responsive.svg');
+					background-image: url('#{$svg-dir}/svg/ecoflam__menu-responsive.svg');
 					background-size: auto 100%;
+
+					@include at('m')
+					{
+						display: none;
+					}
 				}
 			}
 			&-close
@@ -103,7 +108,7 @@
 					height: 2.1rem;
 					width: 2.1rem;
 					content: "";
-					background-image: url('#{$img-dir}/svg/ecoflam__menu-close.svg');
+					background-image: url('#{$svg-dir}/svg/ecoflam__menu-close.svg');
 					background-size: auto 100%;
 					float: right;
 				}
@@ -128,7 +133,7 @@
 	&__content
 	{
 		color: $white;
-		background-image: url('#{$img-dir}/svg/ecoflam__background-title.svg');
+		background-image: url('#{$svg-dir}/svg/ecoflam__background-title.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 

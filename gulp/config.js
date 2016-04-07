@@ -12,7 +12,7 @@ var src                     =   './src',
     dest                    =   "./dist",
 
 // Option for gulp-cssnano ( https://github.com/ben-eb/gulp-cssnano )
-    browserSupported        = [ 'last 2 versions', 'safari >= 8', 'ie >= 10', 'ff >= 20', 'ios 6', 'android 4' ];
+    browserSupported        = [ 'last 2 versions', 'safari >= 8', 'ie >= 10', 'ff >= 20', 'ios 4', 'android 4' ];
 
 module.exports = {
     sass: {
@@ -66,4 +66,10 @@ module.exports = {
         srcWatch : src + '/svg/*.svg',
         dest: dest + '/svg',
     },
+
+    image: {
+        src: './img/*.jpg',
+        // srcWatch : src + '/svg/*.svg',
+        dest: dest + '/img',
+    }
 };

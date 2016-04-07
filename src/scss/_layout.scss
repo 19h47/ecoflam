@@ -35,6 +35,12 @@
 			{
 				column-count: 2;
 			}
+
+			@include to('xs')
+			{
+				margin: 7.4rem 0 0 0;
+				column-gap: 7.4rem;
+			}
 		}
 
 		.text-multiple-column
@@ -52,6 +58,14 @@
 			@include to('xs')
 			{
 				column-count: 1;
+			}
+		}
+
+		&__image
+		{
+			@include to('m')
+			{
+				text-align: center;
 			}
 		}
 	}
@@ -142,7 +156,7 @@
 {
 	&-wrapper
 	{
-		background-image: url('#{$img-dir}/svg/ecoflam__background-page.svg');
+		background-image: url('#{$svg-dir}/svg/ecoflam__background-page.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
@@ -288,6 +302,11 @@
 		font-size: 1.8rem;
 		letter-spacing: 0.1em;
 		transform: translate(-50%, -50%);
+
+		@include at('xs')
+		{
+			font-size: 1rem;
+		}
 	}
 
 	&__content
@@ -385,13 +404,13 @@
 
 	&-buttonPrevious
 	{
-		height: 3rem;
-		width: 3rem;
+		height: 4rem;
+		width: 4rem;
 		margin: 0 0 0 0.5rem;
 		background-color: transparent;
 		border: 1px solid currentColor;
 		color: $grey;
-		line-height: 3rem;
+		line-height: 1;
 		text-align: center;
 		transition: 0.3s ease;
 
@@ -416,13 +435,13 @@
 
 	&-buttonNext
 	{
-		height: 3rem;
-		width: 3rem;
+		height: 4rem;
+		width: 4rem;
 		margin: 0 0 0 0.5rem;
 		background-color: transparent;
 		border: 1px solid currentColor;
 		color: $grey;
-		line-height: 3rem;
+		line-height: 1;
 		text-align: center;
 		transition: 0.3s ease;
 

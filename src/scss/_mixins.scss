@@ -100,42 +100,59 @@
 // }
 
 // EXPAND GRID
-.hidden-at-xs
+.hidden
 {
-    @include at ('xs') 
+    &-at-xs
     {
-        display: none;
+        @include at ('xs') 
+        {
+            display: none;
+        }
     }
-}
-
-.hidden-at-s
-{
-    @include at ('s') 
+    
+    &-at-s
     {
-        display: none;
+        @include at ('s') 
+        {
+            display: none;
+        }
     }
-}
-
-.hidden-to-s
-{
-    @include to ('s') 
+    
+    &-to
     {
-        display: none;
+        &-s
+        {
+            @include to ('s') 
+            {
+                display: none;
+            }
+        }
+
+        &-m
+        {
+            @include to ('m') 
+            {
+                display: none;
+            }
+        }
     }
-}
 
-.hidden-to-m
-{
-    @include to ('m') 
+    &-from
     {
-        display: none;
-    }
-}
+        &-m
+        {
+            @include from ('m')
+            {
+                display: none;
+            }
+        }
 
-.hidden-from-m
-{
-    @include from ('m')
-    {
-        display: none;
+        &-lg
+        {
+            @include from('l')
+            {
+                display: none;
+            }
+        }
     }
 }

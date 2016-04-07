@@ -8,31 +8,31 @@ function ecoflam_customize_register( $wp_customize ) {
     
     // Add company section -----------------------------------------------------
     
-    $wp_customize->add_section( 'company', array(
-        'title' => 'Informations de contact',
-    ) );
+    // $wp_customize->add_section( 'company', array(
+    //     'title' => 'Informations de contact',
+    // ) );
 
-    // Add Company settings and controls in related section
-    $wp_customize->add_setting( 'company_email', array(
-        'type'      => 'option',
-        'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_setting( 'company_phone', array(
-        'type'      => 'option',
-        'transport' => 'postMessage',
-    ) );
+    // // Add Company settings and controls in related section
+    // $wp_customize->add_setting( 'company_email', array(
+    //     'type'      => 'option',
+    //     'transport' => 'postMessage',
+    // ) );
+    // $wp_customize->add_setting( 'company_phone', array(
+    //     'type'      => 'option',
+    //     'transport' => 'postMessage',
+    // ) );
 
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_email', array(
-        'label'     => 'Email',
-        'section'   => 'company',
-        'settings'  => 'company_email',
-        'type'      => 'email',
-    ) ) );
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_phone', array(
-        'label'     => 'Numéro de téléphone',
-        'section'   => 'company',
-        'settings'  => 'company_phone',
-    ) ) );
+    // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_email', array(
+    //     'label'     => 'Email',
+    //     'section'   => 'company',
+    //     'settings'  => 'company_email',
+    //     'type'      => 'email',
+    // ) ) );
+    // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_phone', array(
+    //     'label'     => 'Numéro de téléphone',
+    //     'section'   => 'company',
+    //     'settings'  => 'company_phone',
+    // ) ) );
 
 
     // Add contact_information section -----------------------------------------------------
@@ -47,7 +47,12 @@ function ecoflam_customize_register( $wp_customize ) {
         'transport' => 'postMessage',
     ) );
 
-     $wp_customize->add_setting( 'contact_information_saintpierredescorps_phone', array(
+    $wp_customize->add_setting( 'contact_information_saintpierredescorps_phone', array(
+        'type'      => 'option',
+        'transport' => 'postMessage',
+    ) );
+
+    $wp_customize->add_setting( 'contact_information_saintpierredescorps_email', array(
         'type'      => 'option',
         'transport' => 'postMessage',
     ) );
@@ -57,13 +62,18 @@ function ecoflam_customize_register( $wp_customize ) {
         'transport' => 'postMessage',
     ) );
 
-     $wp_customize->add_setting( 'contact_information_amboise_phone', array(
+    $wp_customize->add_setting( 'contact_information_amboise_phone', array(
+        'type'      => 'option',
+        'transport' => 'postMessage',
+    ) );
+
+    $wp_customize->add_setting( 'contact_information_amboise_email', array(
         'type'      => 'option',
         'transport' => 'postMessage',
     ) );
     
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'contact_information_saintpierredescorps', array(
-        'label'     => 'Adresse de Saint-Pierre-des-Corps',
+        'label'     => 'Adresse postale de Saint-Pierre-des-Corps',
         'section'   => 'contact_information',
         'settings'  => 'contact_information_saintpierredescorps',
         'type'      => 'textarea',
@@ -75,8 +85,14 @@ function ecoflam_customize_register( $wp_customize ) {
         'settings'  => 'contact_information_saintpierredescorps_phone',
     ) ) );
 
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'contact_information_saintpierredescorps_email', array(
+        'label'     => 'Adresse email de Saint-Pierre-des-Corps',
+        'section'   => 'contact_information',
+        'settings'  => 'contact_information_saintpierredescorps_email',
+    ) ) );
+
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'contact_information_amboise', array(
-        'label'     => 'Adresse d\'Amboise',
+        'label'     => 'Adresse postale d\'Amboise',
         'section'   => 'contact_information',
         'settings'  => 'contact_information_amboise',
         'type'      => 'textarea',
@@ -86,6 +102,12 @@ function ecoflam_customize_register( $wp_customize ) {
         'label'     => 'Numéro de téléphone d\'Amboise',
         'section'   => 'contact_information',
         'settings'  => 'contact_information_amboise_phone',
+    ) ) );
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'contact_information_amboise_email', array(
+        'label'     => 'Adresse email d\'Amboise',
+        'section'   => 'contact_information',
+        'settings'  => 'contact_information_amboise_email',
     ) ) );
 
     // Add timetable section -----------------------------------------------------

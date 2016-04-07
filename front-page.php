@@ -153,15 +153,15 @@
 		</div>
 		<div class="inner">
 			<div class="inner-wrapper js-inner row start-xs">	
-				<div class="col-xs-12 col-sm-6">
-					<a href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/">
+				<div class="col-xs-12 col-sm-6 inner-wrapper__image">
+					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-01.jpg" alt="Poêles" width="440" height="535">
 					</a>
 				</div>
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-12 col-sm-6 inner-wrapper__image">
 					<p class="products__title h3">Poêles</p>
 					<a href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/" class="products__link hoverable">Voir</a>
-					<a href="<?php echo home_url( '/' ) ?>les-produits/cheminees/">
+					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/cheminees/">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-02.jpg" alt="Cheminées" width="443" height="296">
 					</a>
 					<p class="products__title h3">Cheminées</p>
@@ -172,16 +172,16 @@
 
 		<div class="inner is-last">
 			<div class="row inner-wrapper js-inner center-xs">
-				<div class="col-xs-12 col-md-9">
-					<a href="<?php echo home_url( '/' ) ?>les-produits/inserts/">
+				<div class="col-xs-12 col-md-9 inner-wrapper__image">
+					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/inserts/">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-03.jpg" alt="Inserts" width="700" height="284">
 					</a>
 				</div>
 			</div>
 			<div class="row inner-wrapper js-inner center-xs">
-				<div class="col-xs-12 col-md-9 text-left">
+				<div class="col-xs-12 col-md-9 text-left-m text-center-xs">
 					<p class="products__title h3">Inserts</p>
-					<a href="<?php echo home_url( '/' ) ?>les-produits/inserts/" class="products__link text-left hoverable">Voir</a>
+					<a href="<?php echo home_url( '/' ) ?>les-produits/inserts/" class="products__link text-left-m text-center-xs hoverable">Voir</a>
 				</div>
 			</div>
 		</div>

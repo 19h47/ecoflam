@@ -73,6 +73,11 @@
 			font-size: 1.5rem;
 			text-transform: uppercase;
 
+			@include to('m')
+			{
+				margin: 1rem 0;
+			}
+
 			&.current
 			{
 				background-color: $red;
@@ -105,6 +110,7 @@
 		background-position: center;
 		background-size: cover;
 		cursor: pointer;
+
 	}
 
 	&__thumbnail
@@ -289,6 +295,13 @@
 		color: $green;
 	}
 
+	&-mail-sent-ok
+	{
+		padding: 1rem;
+		border: 1px solid $green;
+		border-radius: 4px;
+	}
+
 	&-validation-errors
 	{
 		color: $red;
@@ -302,6 +315,14 @@
 	&-not-valid
 	{
 		border-color: $red!important;
+	}
+
+	&-form
+	{
+		.sent--is-ok
+		{
+			display: none;
+		}
 	}
 }
 

@@ -40,7 +40,7 @@ var menu = {
                 // console.log( e.target );
 
 	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
-	                e.preventDefault();
+	                // e.preventDefault();
 	                _this.close();
 	        	}
 	    });

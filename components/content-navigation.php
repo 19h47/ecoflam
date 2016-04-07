@@ -14,7 +14,7 @@
 						foreach ( $terms as $term ) { ?>
 							<?php $class = $currentterm->slug == $term->slug ? ' current' : '' ; ?>
 							
-							<div class="col-xs">
+							<div class="col-xs-12 col-sm">
 								<a class="color-text-black hoverable page-section__navigation__link<?php echo $class; ?>" href="<?php echo get_term_link ( $term, "product_category" ); ?>"><?php echo $term->name; ?></a>
 							</div>
 					

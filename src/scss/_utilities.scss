@@ -27,10 +27,58 @@
     &-left
     {
         text-align: left;
+
+        &-xs
+        {
+            @include from('xs')
+            {
+                text-align: left;
+            }
+        }
+
+        &-s
+        {
+            @include from('s')
+            {
+                text-align: left;
+            }
+        }
+
+        &-m
+        {
+            @include from('m')
+            {
+                text-align: left;
+            }
+        }
     }
 	&-center
     {
         text-align: center;
+        
+        &-xs
+        {
+            @include from('xs')
+            {
+                text-align: center;
+            }
+        }
+
+        &-s
+        {
+            @include from('s')
+            {
+                text-align: center;
+            }
+        }
+
+        &-s
+        {
+            @include from('m')
+            {
+                text-align: center;
+            }
+        }
     }
     &-right
     {
