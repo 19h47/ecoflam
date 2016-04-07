@@ -89,14 +89,22 @@ var app = {
 
                     // Inject the new content
                     $container.html($newContent);
+                    
                 }
             },
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
+                if( $('div.wpcf7 > form').length ){
+                    console.log('wpcf7 selector exist');
+                    // $('div.wpcf7 > form').wpcf7InitForm();
+                } else {
+                    console.log('wpcf7 selector doesn\'t exist');
+                }
+
                 $($container).fadeIn();
 
-                console.log( information.template_directory_uri );
+                console.log( information.page_slug );
                 
 
             }

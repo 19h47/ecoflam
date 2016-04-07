@@ -37,11 +37,10 @@ var menu = {
                 _this.close();
             })  
 	        .on('click', function(e) {
-				e.preventDefault();
                 // console.log( e.target );
 
 	            if (_this._$body.hasClass( _this._classMenuOpen) && !$(e.target).closest('.site-header__nav').length) {
-	                
+	                e.preventDefault();
 	                _this.close();
 	        	}
 	    });
