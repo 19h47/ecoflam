@@ -1,5 +1,3 @@
-jQuery.noConflict();
-
 var app = {
 	// PRIVATE
 	// Here go the private variables
@@ -15,7 +13,7 @@ var app = {
 
 	// FUNCTIONS
 	init: function() {
-		this._$body = jQuery( 'body' );
+		this._$body = $( 'body' );
 		this._initPlugins();
 
         home.init();
@@ -29,8 +27,6 @@ var app = {
         console.log('Matrix: Reloaded')
 
         app.init();
-
-        // _this.wpcf7InitForm();
     },
 
 	_initPlugins: function(){
@@ -48,11 +44,11 @@ var app = {
     _transitionPage: function( element ){
         var _this = this;
 
-        if(!jQuery(element).length){
+        if(!$(element).length){
             return true;
         }
 
-        jQuery(element).smoothState({
+        $(element).smoothState({
             prefetch: true,
             cacheLength: 3,
             scroll: true,
@@ -66,7 +62,7 @@ var app = {
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
-                    jQuery($container).fadeOut();
+                    $($container).fadeOut();
                     
                     // Ensure menu is closed
                     menu.close();
@@ -93,19 +89,22 @@ var app = {
 
                     // Inject the new content
                     $container.html($newContent);
+                    
                 }
             },
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                jQuery($container).fadeIn();
+                if( $('div.wpcf7 > form').length ){
+                    console.log('wpcf7 selector exist');
+                    // $('div.wpcf7 > form').wpcf7InitForm();
+                } else {
+                    console.log('wpcf7 selector doesn\'t exist');
+                }
 
-                console.log( information.template_directory_uri );
+                $($container).fadeIn();
 
-                console.log(information.home_url);                
-                console.log(information.base_url);           
-                console.log(information.is_front_page);           
-                console.log(information.page_slug);
+                console.log( information.page_slug );
                 
 
             }
@@ -113,8 +112,8 @@ var app = {
     }
 };
 
-jQuery(function() {
+$(function() {
 
     app.init();
-
+    
 });

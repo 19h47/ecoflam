@@ -51,7 +51,7 @@ var home = {
 
 		if( !_slider_container ){
 
-		 	console.log( 'Heck, it seems that there is no selector.' );
+		 	console.log( 'Slider: Heck, it seems that there is no selector.' );
 
 			return;
 
