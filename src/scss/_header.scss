@@ -79,7 +79,7 @@
 					background-image: url('#{$svg-dir}/svg/ecoflam__menu-responsive.svg');
 					background-size: auto 100%;
 
-					@include at('m')
+					@include from('xs')
 					{
 						display: none;
 					}

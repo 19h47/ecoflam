@@ -54,7 +54,7 @@
 				
 				<?php $url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>
 
-				<div class="col-xs-6 col-sm-4 page-section js-toggle-image">
+				<div class="col-xs-12 col-sm-6 col-md-4 page-section js-toggle-image">
 					<div<?php if( $url ){ ?>
 							style="background-image: url('<?php echo $url; ?>');"
 						<?php } else { ?>
