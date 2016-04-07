@@ -16,7 +16,7 @@ var page = {
 
 	// FUNCTIONS
 	init: function( ) {
-        this._$sections = $( '.site-section' );
+        this._$sections = jQuery( '.site-section' );
 
 		this._setContents();
 
@@ -55,7 +55,7 @@ var page = {
 		
 		var _this = this;
 
-        var $content = $( section ).find('.js-inner');
+        var $content = jQuery( section ).find('.js-inner');
 
         TweenMax.to( 
         	$content, 
@@ -82,17 +82,17 @@ var page = {
      * http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
      */
     inlineSVG: function() {
-        $('img.svg').each(function(){
-            var $img = $(this);
+        jQuery('img.svg').each(function(){
+            var $img = jQuery(this);
             var imgID = $img.attr('id');
             var imgClass = $img.attr('class');
             var imgURL = $img.attr('src');
             var imgWidth = $img.attr('width');
             var imgHeight = $img.attr('height');
 
-            $.get(imgURL, function(data) {
+            jQuery.get(imgURL, function(data) {
                 // Get the SVG tag, ignore the rest
-                var $svg = $(data).find('svg');
+                var $svg = jQuery(data).find('svg');
 
                 // Add replaced image's ID to the new SVG
                 if (typeof imgID !== 'undefined') {

@@ -1,3 +1,5 @@
+jQuery.noConflict();
+
 var app = {
 	// PRIVATE
 	// Here go the private variables
@@ -13,7 +15,7 @@ var app = {
 
 	// FUNCTIONS
 	init: function() {
-		this._$body = $( 'body' );
+		this._$body = jQuery( 'body' );
 		this._initPlugins();
 
         home.init();
@@ -27,6 +29,8 @@ var app = {
         console.log('Matrix: Reloaded')
 
         app.init();
+
+        // _this.wpcf7InitForm();
     },
 
 	_initPlugins: function(){
@@ -44,11 +48,11 @@ var app = {
     _transitionPage: function( element ){
         var _this = this;
 
-        if(!$(element).length){
+        if(!jQuery(element).length){
             return true;
         }
 
-        $(element).smoothState({
+        jQuery(element).smoothState({
             prefetch: true,
             cacheLength: 3,
             scroll: true,
@@ -62,7 +66,7 @@ var app = {
                     // Restart your animation
                     // _this.smoothState.restartCSSAnimations();
 
-                    $($container).fadeOut();
+                    jQuery($container).fadeOut();
                     
                     // Ensure menu is closed
                     menu.close();
@@ -94,9 +98,14 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                $($container).fadeIn();
+                jQuery($container).fadeIn();
 
                 console.log( information.template_directory_uri );
+
+                console.log(information.home_url);                
+                console.log(information.base_url);           
+                console.log(information.is_front_page);           
+                console.log(information.page_slug);
                 
 
             }
@@ -104,8 +113,8 @@ var app = {
     }
 };
 
-$(function() {
+jQuery(function() {
 
     app.init();
-    
+
 });

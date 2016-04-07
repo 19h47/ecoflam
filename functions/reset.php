@@ -3,7 +3,8 @@
 // hide admin bar
 add_filter( 'show_admin_bar', '__return_false' );
 // disable loading of stylesheets and scripts from Contact Form 7 plugin
-// add_filter( 'wpcf7_load_js', '__return_false' );
+// http://contactform7.com/loading-javascript-and-stylesheet-only-when-it-is-necessary/
+add_filter( 'wpcf7_load_js', '__return_false' );
 add_filter( 'wpcf7_load_css', '__return_false' );
 // remove Get Shortlink
 add_filter( 'pre_get_shortlink', '__return_empty_string' );

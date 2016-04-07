@@ -6,7 +6,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = $('body');
+    	this._$body = jQuery('body');
 
     	this._initEvents();
     },
@@ -16,13 +16,13 @@ var menu = {
 
     	// TOGGLE MENU RESPONSIVE
         // Between click and function, we can pass a sort of filter selector
-	    $(document).on('click', '#js-toggle-menu', function(e) {
+	    jQuery(document).on('click', '#js-toggle-menu', function(e) {
 	        // AVOID PROPAGATION OF EVENT IN DOM
 	        e.stopPropagation();
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        $(this).trigger(_this._toggleMenu);
+	        jQuery(this).trigger(_this._toggleMenu);
 	    });
 
 	    this._$body
@@ -82,7 +82,7 @@ var menu = {
     }
 };
 
-$( function() {
+jQuery( function() {
 
     menu.init();
 
