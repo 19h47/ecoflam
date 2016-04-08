@@ -18,31 +18,31 @@
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 					<div class="row center-xs middle-xs">
 						<div class="col-xs">
-							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-poeles-bois.svg" width="31px" height="73px">
+							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-poeles-bois.svg" width="31" height="73" alt="Poêles à bois">
 							<p class="entreprise__description hidden-from-m">
 								Poêles à bois
 							</p>
 						</div>
 						<div class="col-xs">
-							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-poeles-granules.svg" width="31px" height="73px">
+							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-poeles-granules.svg" width="31" height="73" alt="Poêles à granulés">
 							<p class="entreprise__description hidden-from-m">
 								Poêles à granulés
 							</p>
 						</div>
 						<div class="col-xs">
-							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-cheminees.svg" width="57px" height="74px">
+							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-cheminees.svg" width="57" height="74" alt="Cheminées">
 							<p class="entreprise__description hidden-from-m">
 								Cheminées
 							</p>
 						</div>
 						<div class="col-xs">
-							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-foyers-gaz.svg" width="71px" height="39px">
+							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-foyers-gaz.svg" width="71" height="39" alt="Foyers gaz">
 							<p class="entreprise__description hidden-from-m">
 								Foyers gaz
 							</p>
 						</div>
 						<div class="col-xs">
-							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-inserts.svg" width="50px" height="44px">
+							<img src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__picto-inserts.svg" width="50" height="44" alt="Inserts">
 							<p class="entreprise__description hidden-from-m">
 								Inserts
 							</p>
@@ -204,62 +204,62 @@
 				<div class="col-xs-12 col-md-10 col-md-offset-1">
 					<div class="row middle-xs center-xs brands">
 						<a class="col-xs-6 col-sm" href="http://www.altechpoeles.com">
-							<img alt="altechpoeles" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__altechpoeles.svg"  width="58px" height="23px">
+							<img alt="altechpoeles" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__altechpoeles.svg"  width="58" height="23">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.bgfires.com">
-							<img alt="bgfires" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__bgfires.svg"  width="90px" height="27px">
+							<img alt="bgfires" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__bgfires.svg"  width="90" height="27">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.poujoulat.fr/fr/">
-							<img alt="poujoulat" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__poujoulat.svg" width="86px" height="47px">
+							<img alt="poujoulat" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__poujoulat.svg" width="86" height="47">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.danskan.be">
-							<img alt="danskan" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__danskan.svg" width="46px" height="46px">
+							<img alt="danskan" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__danskan.svg" width="46" height="46">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.dixneuf.com">
-							<img alt="dixneuf" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__dixneuf.svg" width="89px" height="26px">
+							<img alt="dixneuf" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__dixneuf.svg" width="89" height="26">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.scan-line.fr">
-							<img alt="scan-line" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__scan-line.svg" width="77px" height="41px">
+							<img alt="scan-line" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__scan-line.svg" width="77" height="41">
 						</a>
 					</div>
 					<div class="row middle-xs center-xs brands">
 						<a class="col-xs-6 col-sm" href="http://www.kal-fire.com/fr">
-							<img alt="kal-fire" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__kal-fire.svg" width="99px" height="31px">
+							<img alt="kal-fire" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__kal-fire.svg" width="99" height="31">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://nordpeis.fr">
-							<img alt="nordpeis" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__nordpeis.svg" width="92px" height="31px">
+							<img alt="nordpeis" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__nordpeis.svg" width="92" height="31">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.olsberg.com">
-							<img src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__olsberg.svg" >
+							<img src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__olsberg.svg" width="87" height="34" alt="Olsberg">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.spartherm.com/fr/accueil/">
-							<img alt="spartherm" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__spartherm.svg" width="126px" height="58px">
+							<img alt="spartherm" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__spartherm.svg" width="126" height="58">
 						</a>
 						<a class="col-xs-6 col-sm" href="http://stuv.com/fr">
-							<img alt="stuv" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__stuv.svg" width="59px" height="19px">
+							<img alt="stuv" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__stuv.svg" width="59" height="19">
 						</a>
 					</div>
 
 					<div class="row middle-xs center-xs brands">
 
 						<a class="col-xs-6 col-sm" href="http://www.thermorossi.fr">
-							<img alt="thermorossi" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__thermorossi.svg" width="123px" height="18px">
+							<img alt="thermorossi" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__thermorossi.svg" width="123" height="18">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.traforart.net">
-							<img alt="traforart" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__traforart.svg" width="126px" height="11px">
+							<img alt="traforart" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__traforart.svg" width="126" height="11">
 						</a>
 
 						<a class="col-xs-6 col-sm" href="http://www.tulp.eu">
-							<img alt="tulp" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__tulp.svg" width="86px" height="40px">
+							<img alt="tulp" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__tulp.svg" width="86" height="40">
 						</a>
 					</div>
 				</div>
@@ -376,10 +376,10 @@
 				<nav class="row end-xs">
 					<div class="event-nav col-xs-12">
 		  				<button class="event-buttonPrevious">
-		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-previous.svg" alt="" width="12px" height="15px">
+		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-previous.svg" alt="" width="12" height="15">
 		  				</button>
 		  				<button class="event-buttonNext">
-		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-next.svg" alt="" width="12px" height="15px">
+		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-next.svg" alt="" width="12" height="15">
 		  				</button>
 		  			</div>
 		  		</nav>

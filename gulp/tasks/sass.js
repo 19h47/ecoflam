@@ -10,6 +10,7 @@ var gulp            = require( 'gulp' ),
     concat          = require( 'gulp-concat' ),
     plumber         = require( 'gulp-plumber' ),
     rename          = require( 'gulp-rename' ),
+    postcss         = require( 'gulp-postcss'),
 
     config          = require('../config').sass;
 
@@ -33,6 +34,7 @@ gulp.task('sass', function() {
         .pipe( csso() )
         .pipe( concat( config.file ))
         .pipe( autoprefixer() )
+        .pipe( postcss([ require('postcss-flexibility') ]) )
         .pipe( sourcemaps.write( 'maps' ))
         .pipe( gulp.dest( config.dest ))
         ;

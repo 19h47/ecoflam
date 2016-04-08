@@ -49,6 +49,7 @@ function ecoflam_add_custom_assets() {
         
         // register SCRIPTS ----------------------------------------------------
 
+
         // global $wp_scripts;
         
         // remove wp-embed script from WordPress
@@ -68,7 +69,11 @@ function ecoflam_add_custom_assets() {
 
         // Global functions
         wp_register_script( 'ecoflam-functions', get_template_directory_uri() . '/dist/js/min/functions.min.js', array( 'jquery', 'gsap-tweenmax', 'gsap-timelinemax' ), null, true );
-        
+       
+        // POLYFILL FLEXBOX
+        wp_enqueue_script( 'flexibility', get_template_directory_uri() . '/dist/js/vendors/flexibility.js', false, null, true );
+        wp_script_add_data( 'flexibility', 'conditional', 'lt IE 9' );
+
         wp_localize_script( 
             'ecoflam-functions', 
             'information', 
