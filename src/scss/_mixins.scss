@@ -139,6 +139,14 @@
 
     &-from
     {
+        &-s
+        {
+            @include from('s')
+            {
+                display: none;
+            }
+        }
+
         &-m
         {
             @include from ('m')
@@ -147,7 +155,7 @@
             }
         }
 
-        &-lg
+        &-l
         {
             @include from('l')
             {

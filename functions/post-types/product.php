@@ -38,7 +38,7 @@ function ecoflam_product_post_type() {
         'label'               => __( 'Produit', 'ecoflam' ),
         'description'         => __( 'Les produits', 'ecoflam' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'thumbnail', ),
+        'supports'            => array( 'title', 'thumbnail', 'custom-fields' ),
         'taxonomies'          => array( 'product_category' ),
         'hierarchical'        => false,
         'public'              => true,

@@ -1422,38 +1422,54 @@ var image = {
 	    // TOGGLE IMAGE
 	    jQuery(document).on('click', '.js-toggle-image', function(e){
 	    	
-	    	
-	    	
-
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
-	        	jQuery(this)
+	        	$(this)
 	        		.children()
 					.css("background-image")
 					.replace( /.*\s?url\([\'\"]?/, '')
 					.replace( /[\'\"]?\).*/, '');
 
 				// GET TITLE
-				var _title = jQuery(this).find('.js-title').text();
+				var _title = $(this).find('.js-title').text();
 
 				// GET CAT
-				var _category = jQuery(this).find( '.js-category').text();
+				var _category = $(this).find('.js-category').text();
+
+				// GET DESCRIPTION
+				var _description = $(this).find('.js-description').text();
+
+				console.log(_description);
 
 	    	if( !jQuery(this).children().attr('style') ){
 
-	    		jQuery(_this._box).toggleClass('show');
-				jQuery('.js-image-overlay-image').hide();
-				jQuery('.js-image-overlay-text').empty().append(_title);
-				jQuery('.js-image-overlay-category').empty().append(_category);
+	    		$(_this._box).toggleClass('show');
+				$('.js-image-overlay-image').hide();
+				$('.js-image-overlay-category').empty().append(_category);
+				$('.js-image-overlay-title').empty().append(_title);
+
+				if( _description.length )
+				{
+					$('.js-image-overlay-description').empty().append(_description);
+				} else {
+					$('.js-image-overlay-description').empty()
+				}
 
 				// return;
 
 			} else {
 
-				jQuery(_this._box).toggleClass( 'show' );
-				jQuery( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				jQuery( '.js-image-overlay-text' ).html(_title);
-				jQuery( '.js-image-overlay-category' ).html(_category);
+				$(_this._box).toggleClass( 'show' );
+				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
+				$( '.js-image-overlay-title' ).html(_title);
+				$( '.js-image-overlay-category' ).html(_category);
+
+				if( _description.length )
+				{
+					$('.js-image-overlay-description').empty().append(_description);
+				} else {
+					$('.js-image-overlay-description').empty()
+				}
 			}
 	     e.stopPropagation();  
 	     jQuery(this).trigger( _this._toggleImage ); 

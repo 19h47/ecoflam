@@ -13,7 +13,11 @@
 					<p class="js-category page-section__text__category js-image-overlay-category text-left color-grey">
 						YO						
 					</p>
-					<p class="js-title page-section__text__title js-image-overlay-text text-left color-text-black">
+					<p class="js-title page-section__text__title js-image-overlay-title text-left color-text-black">
+						YO	
+					</p>
+
+					<p class="js-description page-section__text__description js-image-overlay-description text-left color-text-black">
 						YO	
 					</p>	
 				</div>
@@ -69,6 +73,17 @@
 							<p class="js-title page-section__text__title color-white">
 								<?php the_title(); ?>
 							</p>
+							
+							<?php if ( get_field('description') ){ ?>
+					
+							<p class="js-description display-none">
+								
+								<?php the_field('description'); ?></h2>
+								
+							</p>
+
+							<?php } ?>
+
 							<button class="page-section__text__button h4 text-left display-inline-block">
 								Voir
 							</button>

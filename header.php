@@ -27,22 +27,22 @@
 				
 				<header class="site-header">
 					<div class="inner">
-						<div class="inner-wrapper row middle-xs">
+						<div class="inner-wrapper row middle-xs end-xs">
 
-							<div class="site-header__logo col-xs-9 col-sm-4 start-xs">
+							<div class="site-header__logo col-xs-9 col-sm-4">
 								<div class="box">
 									<a href="<?php echo home_url( '/' ) ?>">
 										<img class="svg" alt="Écoflam logo" src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__logo.svg" width="290" height="33">
 									</a>
 								</div>
 							</div>
-
-							<button id="js-toggle-menu" class="hidden-from-m middle-xs col-xs-3 site-header__nav__button-open">
+							
+							<button id="js-toggle-menu" class="hidden-from-l col-sm-offset-5 middle-xs col-xs-3 site-header__nav__button-open">
 								Menu
 							</button>
 
 							<nav class="site-header__nav col-xs-12 col-sm-8 end-xs">
-									<button id="js-menu-close" class="hidden-from-m site-header__nav__button-close">Menu</button>
+									<button id="js-menu-close" class="hidden-from-l site-header__nav__button-close">Menu</button>
 									<?php
 										$args = array(
 											'theme_location'	=> 'primary',
@@ -54,7 +54,7 @@
 									?>
 								
 							</nav>
-								<div class="site-header__nav__overlay hidden-from-m">
+								<div class="site-header__nav__overlay">
 									
 								</div>
 						</div>

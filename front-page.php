@@ -12,7 +12,7 @@
 		</div>
 	</section>
 
-	<section class="site-section entreprise">
+	<section class="site-section entreprise background-white">
 		<div class="inner">
 			<div class="inner-wrapper js-inner row">
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -86,27 +86,36 @@
 		</div>
 	</section>
 
-	<section class="site-section">
+	<section class="site-section background-white">
 		<div class="inner is-last">
 			<div class="inner-wrapper js-inner row top-xs">
 				<div class="site-section__text col-xs-12 col-sm-4">
+		
+					<?php if ( get_field('introduction_text-left') ){ ?>
+					
 					<p class="color-red text-20">
-						Depuis plus de vingt ans, la société ECOFLAM, située dans le département de l'Indre-et-Loire, s'appuie sur une expertise affûtée afin de concevoir des solutions innovantes et personnalisées pour le confort de votre intérieur.
+						<?php the_field('introduction_text-left'); ?></h2>
 					</p>
+					<?php } ?>
+
 				</div>
+
 				<div class="site-section__text col-xs-12 col-sm-8 text-16 color-grey text-multiple-column">
+					
+					<?php if ( get_field('introduction_text-center') ){ ?>
+					
 					<p class="display-inline-block">
-						De plus en plus à l'honneur, les poêles et cheminées aux lignes épurées s'imposent au cœur de votre foyer.
-						<br>
-						La gamme des installations commercialisées par ECOFLAM offre une grande variété de marques et de produits à la pointe de la technologie alliant style et performance, quel que soit votre budget.
-						<br>
+						<?php the_field('introduction_text-center'); ?></h2>
 					</p>
+					<?php } ?>
+
+					<?php if ( get_field('introduction_text-right') ){ ?>
+					
 					<p class="display-inline-block">
-						Vous trouverez notamment des poêles à bois, à accumulation et à granulés.
-						<br>
-						<br>
-						Deux showrooms sont a votre disposition au public à Amboise et à Saint-Pierre-des-Corps où notre équipe vous accueille et vous conseille... Chaleureusement !
+						<?php the_field('introduction_text-right'); ?></h2>
 					</p>
+					<?php } ?>
+
 				</div>
 			</div>
 		</div>
