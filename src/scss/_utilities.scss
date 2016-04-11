@@ -147,6 +147,11 @@
     &-table
     {
         display: table;
+
+        &.fixed
+        {
+            table-layout: fixed;
+        }
        
         &-cell
         {
@@ -313,3 +318,71 @@
         height: 100%;
     }
 }
+
+// UPDATE BOOTSTRAP
+.center
+{
+    &-xs
+    {
+        @include from('xs')
+        {
+            text-align: center;
+        }
+    }
+}
+.end
+{
+    &-xs
+    {
+        @include from('xs')
+        {
+            text-align: right;
+        }
+    }
+}
+
+.start
+{
+    &-xs
+    {
+        @include from('xs')
+        {
+            text-align: left;
+        }
+    }
+}
+
+.col
+{
+    &-xs-15,
+    &-sm-15,
+    &-md-15,
+    &-lg-15 {
+        position: relative;
+        padding-right: 10px;
+        padding-left: 10px;
+        min-height: 1px;
+    }
+    
+    &-xs-15 {
+        width: 20%;
+        float: left;
+    }
+    
+    @include from('s')
+    {
+        &-sm-15 {
+            width: 20%;
+            float: left;
+        }
+    }
+
+    @include from('m')
+    {
+        &-md-15 {
+            width: 20%;
+            float: left;
+        }
+    }
+}
+

@@ -1197,7 +1197,7 @@ var page = {
 
 	// FUNCTIONS
 	init: function( ) {
-        this._$sections = jQuery( '.site-section' );
+        this._$sections = $('.site-section');
 
 		this._setContents();
 
@@ -1236,21 +1236,21 @@ var page = {
 		
 		var _this = this;
 
-        var $content = jQuery( section ).find('.js-inner');
+        var $content = $( section ).find('.js-inner');
 
         TweenMax.to( 
         	$content, 
         	0.6, 
         	{ 
         		y: 0, 
-        		autoAlpha: 1 
+        		autoAlpha: 1,
         	}
         );
 	},
 
 	_setContents: function() {
         // console.info('agence._setContents');
-
+        var _this = this;
         if (this._ready || !this._$sections || !this._$sections.length) {
             return;
         }
@@ -1263,17 +1263,17 @@ var page = {
      * http://stackoverflow.com/questions/24933430/img-src-svg-changing-the-fill-color
      */
     inlineSVG: function() {
-        jQuery('img.svg').each(function(){
-            var $img = jQuery(this);
+        $('img.svg').each(function(){
+            var $img = $(this);
             var imgID = $img.attr('id');
             var imgClass = $img.attr('class');
             var imgURL = $img.attr('src');
             var imgWidth = $img.attr('width');
             var imgHeight = $img.attr('height');
 
-            jQuery.get(imgURL, function(data) {
+            $.get(imgURL, function(data) {
                 // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
+                var $svg = $(data).find('svg');
 
                 // Add replaced image's ID to the new SVG
                 if (typeof imgID !== 'undefined') {

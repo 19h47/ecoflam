@@ -5,7 +5,6 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<?php wp_head(); ?>
-
 	</head>
 	<body>
 		<div id="js-wrapper">
@@ -13,17 +12,23 @@
 				<?php if( is_page() || is_tax() ) { ?>
 					<main class="page-wrapper">
 				<?php } ?>
-
-				<!-- <svg width="0" height="0">
-				  <defs>
-				    <clipPath id="clip-shape-rtl" clipPathUnits="objectBoundingBox">
-				      <polygon points="0 1, 1 0, 1 1" />
-				    </clipPath>
-				    <clipPath id="clip-shape-ltr" clipPathUnits="objectBoundingBox">
-				      <polygon points="0 0, 1 1, 0 1" />
-				    </clipPath>
-				  </defs>
-				</svg> -->
+				<!-- (Display none breaks the <defs> and visibility hidden takes space.) -->
+				<!-- SVG takes some space even with height and width to 0, so we put it in absolute position -->
+				<!-- http://stackoverflow.com/a/31596131 -->
+				<svg width="0" height="0" class="position-absolute">
+					<defs>
+						<!-- RIGHT TO LEFT -->
+					  	<clipPath id="oblic-rtl" clipPathUnits="objectBoundingBox">
+					    	<polygon points="0 1, 1 0, 1 1">
+					    	</polygon>
+					  	</clipPath>
+					  	<!-- LEFT TO RIGHT -->
+					  	<clipPath id="oblic-ltr" clipPathUnits="objectBoundingBox">
+					    	<polygon points="0 0, 1 1, 0 1">
+					    	</polygon>
+					  	</clipPath>
+				  	</defs>
+				</svg>
 				
 				<header class="site-header">
 					<div class="inner">
@@ -36,6 +41,7 @@
 									</a>
 								</div>
 							</div>
+							
 							
 							<button id="js-toggle-menu" class="hidden-from-l col-sm-offset-5 middle-xs col-xs-3 site-header__nav__button-open">
 								Menu
@@ -54,9 +60,9 @@
 									?>
 								
 							</nav>
-								<div class="site-header__nav__overlay">
-									
-								</div>
+							<div class="site-header__nav__overlay">
+								
+							</div>
 						</div>
 
 						<?php if( is_front_page() ){ ?>

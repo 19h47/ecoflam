@@ -2,7 +2,6 @@
 
 var gulp            = require( 'gulp' ),
     nano            = require( 'gulp-cssnano' ),
-    autoprefixer    = require( 'gulp-autoprefixer' ) ,
     csso            = require( 'gulp-csso' ),
     sourcemaps      = require( 'gulp-sourcemaps' ),
     mmq             = require( 'gulp-merge-media-queries' ),
@@ -15,12 +14,6 @@ gulp.task('minify', ['sass'], function() {
         .pipe( 
             nano({
                 sourcemap: false,
-                autoprefixer: 
-                { 
-                    browsers: config.supported, 
-                    add: true 
-                },
-                
                 discardComments: 
                 {
                     removeAll: false

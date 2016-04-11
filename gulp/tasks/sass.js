@@ -33,7 +33,9 @@ gulp.task('sass', function() {
         .pipe( mmq() )
         .pipe( csso() )
         .pipe( concat( config.file ))
-        .pipe( autoprefixer() )
+        .pipe( autoprefixer({
+            browsers: config.browserSupported,
+        }))
         .pipe( postcss([ require('postcss-flexibility') ]) )
         .pipe( sourcemaps.write( 'maps' ))
         .pipe( gulp.dest( config.dest ))

@@ -1,11 +1,11 @@
 <div class="inner has-padding">
 
-	<div class="inner-wrapper js-inner row center-xs">
-		<div class="col-xs-10 position-relative">
+	<div class="inner-wrapper js-inner row">
+		<div class="col-xs-10 col-xs-offset-1 position-relative">
 			
 			<!-- OVERLAY -->
 			<div class="row center-xs middle-xs page-section__overlay-image js-image-overlay">
-				<div class="col-xs-10 page-section__overlay-image__inner">
+				<div class="col-xs-10 col-xs-offset-1 page-section__overlay-image__inner">
 					<span class="page-section__overlay-image__close js-image-close">
 						<img class="svg" src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__close.svg" alt="" width="12px" height="12px">
 					</span>

@@ -1,8 +1,8 @@
 <div class="inner">
 	<div class="inner-wrapper js-inner row center-xs">
 		
-		<div class="col-xs-10 page-section__navigation">
-			<div class="row middle-xs">
+		<div class="col-xs-10 col-xs-offset-1 page-section__navigation">
+			<div class="row">
 
 				<?php 
 					
@@ -14,7 +14,7 @@
 						foreach ( $terms as $term ) { ?>
 							<?php $class = $currentterm->slug == $term->slug ? ' current' : '' ; ?>
 							
-							<div class="col-xs-12 col-sm">
+							<div class="col-xs-12 col-md-15">
 								<a class="color-text-black hoverable page-section__navigation__link<?php echo $class; ?>" href="<?php echo get_term_link ( $term, "product_category" ); ?>"><?php echo $term->name; ?></a>
 							</div>
 					

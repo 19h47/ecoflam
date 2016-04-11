@@ -12,27 +12,30 @@ var src                     =   './src',
     dest                    =   "./dist",
 
 // Option for gulp-cssnano ( https://github.com/ben-eb/gulp-cssnano )
-    browserSupported        = [ 'last 2 versions', 'safari >= 8', 'ie >= 10', 'ff >= 20', 'ios 4', 'android 4' ];
+    browserSupported        = [ 'last 2 versions', 'safari >= 8', 'iOS Safari >= 6', 'ie >= 10', 'ff >= 20', 'ios 4', 'android 4' ];
 
 module.exports = {
     sass: {
         // Source of CSS files
         src: [
-            './node_modules/flexboxgrid/css/flexboxgrid.css',
+            // './node_modules/flexboxgrid/css/flexboxgrid.css',
             src + '/scss/global.scss'
 
         ],
         deps: [
+            './node_modules/bootstrap-sass/assets/stylesheets',
             './node_modules/node-normalize-scss',
             './node_modules/breakpoint-sass/stylesheets',
             './node_modules/breakpoint-slicer/stylesheets',
             './node_modules/typi/scss',
         ],
         // Source to watch
-        srcWatch: src + '/scss/*.scss',
+        // To watch all files use **
+        srcWatch: src + '/scss/**',
         file: fileCSS,
         // Destination
-        dest: dest + '/css'
+        dest: dest + '/css',
+        supported: browserSupported,
     },
 
     javascript: {
@@ -58,7 +61,6 @@ module.exports = {
         src: dest + '/css/' + fileCSS,
         srcWatch : src + '/scss/*.scss',
         dest: dest + '/css/min',
-        supported: browserSupported,
     },
 
     svg: {

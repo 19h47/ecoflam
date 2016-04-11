@@ -82,9 +82,10 @@
 }
 
 // To create the oblic effect on section, we are using the property CSS clip-path. It works like a charm.
+// Unfortunately it doesn't work in Firefox, so we offer a fallback with a clip from inline-svg
 .oblic
 {
-	
+	// Right to left
 	&-rtl
 	{
 		position: relative;
@@ -95,12 +96,18 @@
 			display: block;
 			position: absolute;
 			top: -144px;
-			height: 144px;
+			// To prevent space on mobile device we add 1px
+			// I know it's shame
+			height: 145px;
 			width: 100%;
 			background-color: inherit;
 			content: "";
+			// WEBKIT
 			clip-path: polygon( 0% 100%, 100% 0%, 100% 100% );
-			// clip-path: url("#clip-shape-rtl");
+			// FIREFOX
+			// clip-path: polygon( 0% 100%, 100% 0%, 100% 100% );
+			// clip-path: url("#{$url}#oblic-rtl");
+			// overflow: hidden;
 
 			// 0% 100%,100% 0%,100% 100%
 		}
@@ -111,22 +118,29 @@
 		}
 
 	}
-
+	
+	// Left to right
 	&-ltr
 	{
 		position: relative;
 		// margin-bottom: 144px;
-
+	
 		&::before
 		{
 			display: block;
 			position: absolute;
 			top: -144px;
-			height: 144px;
+			// To prevent space on mobile device we add 1px
+			// I know it's shame
+			height: 145px;
 			width: 100%;
 			background-color: inherit;
 			content: "";
 			clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+			// clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+			// clip-path: url("#{$url}#oblic-ltr");
+			// overflow: hidden;
+
 		}
 		
 		.inner
@@ -274,6 +288,20 @@
 	}
 }
 
+// ENTREPRISE
+.entreprise
+{
+	&__cell
+	{
+		@include to('s')
+		{
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 7rem;
+		}
+	}
+}
+
 // INSERT
 .insert
 {
@@ -295,7 +323,8 @@
 		left: 50%;
   		top: 0;
 		padding: 1.2rem;
-		// width: 70%;
+		width: 100%;
+		max-width: 40rem;
 		background-color: $text-black;
 		border-radius: 4px;
 		font-family: $font-title;
@@ -375,9 +404,10 @@
 	
 	& > a
 	{
-		@include to('s')
+		@include to('l')
 		{
 			margin-bottom: 7rem;
+			min-height: 5rem;
 		}
 	}
 }
