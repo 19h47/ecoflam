@@ -9,4 +9,5 @@ npm-debug.log
 /src/psd/
 /src/jpg/
 /src/pdf/
-.json
+sftp-config.json
+sftp-config.json.dev
