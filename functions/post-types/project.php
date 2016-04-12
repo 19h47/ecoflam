@@ -38,7 +38,7 @@ function ecoflam_project_post_type() {
         'label'               => __( 'Réalisation', 'ecoflam' ),
         'description'         => __( 'Nos réalisations', 'ecoflam' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'thumbnail', 'custom-fields' ),
+        'supports'            => array( 'title', 'thumbnail' ),
         'taxonomies'          => array( 'project_category' ),
         'hierarchical'        => false,
         'public'              => true,

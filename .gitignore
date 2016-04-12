@@ -9,3 +9,4 @@ npm-debug.log
 /src/psd/
 /src/jpg/
 /src/pdf/
+.json
