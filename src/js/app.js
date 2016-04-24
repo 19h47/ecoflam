@@ -18,6 +18,7 @@ var app = {
 
         home.init();
         page.init('main');
+        // image.init();
         
 	},
 
@@ -27,6 +28,7 @@ var app = {
         console.log('Matrix: Reloaded')
 
         app.init();
+        image.init();
     },
 
 	_initPlugins: function(){
@@ -65,6 +67,8 @@ var app = {
                     $($container).fadeOut();
                     
                     image.close();
+                    // Deregister custom event
+                    $('body').unbind('toggle.image');
                     // Ensure menu is closed
                     menu.close();
                 }
@@ -73,19 +77,14 @@ var app = {
                 duration: 250,
                 render: function ($container) {
 
-                
-
                 }
             },
             onReady: {
                 duration: 0,
                 render: function ($container, $newContent) {
-                    
-                   
+                                       
                     // Remove your CSS animation reversing class
                     _this._$body.removeClass('is-exiting');
-
-                    
 
                     // Inject the new content
                     $container.html($newContent);
@@ -95,17 +94,10 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                
-                // if( $('div.wpcf7 > form').length ){
-                //     console.log('wpcf7 selector exist');
-                //     // $('div.wpcf7 > form').wpcf7InitForm();
-                // } else {
-                //     console.log('wpcf7 selector doesn\'t exist');
-                // }
 
                 $($container).fadeIn();
 
-                console.log( information.page_slug );
+                // console.log( information.page_slug );
                 
 
             }

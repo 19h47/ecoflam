@@ -6,7 +6,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = jQuery('body');
+    	this._$body = $('body');
 
     	this._initEvents();
     },
@@ -22,7 +22,7 @@ var menu = {
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        jQuery(this).trigger(_this._toggleMenu);
+	        $(this).trigger(_this._toggleMenu);
 	    });
 
 	    this._$body

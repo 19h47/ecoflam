@@ -13,5 +13,5 @@
 	</clipPath>
 	<rect x="0.5" y="0.5" clip-path="url(#SVGID_2_)" fill="none" stroke="#7C7A7B" stroke-miterlimit="10" width="30" height="30"/>
 </g>
-<polygon class="change-fill" fill="#7C7A7B" points="19.039,7.548 22.604,7.548 14.499,15.277 22.604,23.007 19.039,23.007 10.935,15.277 "/>
+<polygon class="change-fill" fill="#fff" points="19.039,7.548 22.604,7.548 14.499,15.277 22.604,23.007 19.039,23.007 10.935,15.277 "/>
 </svg>

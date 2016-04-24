@@ -4,21 +4,23 @@
 		<div class="col-xs-10 col-xs-offset-1 position-relative">
 			
 			<!-- OVERLAY -->
-			<div class="row center-xs middle-xs page-section__overlay-image js-image-overlay">
+			<div id="js-image-overlay" class="row center-xs middle-xs page-section__overlay-image">
 				<div class="col-xs-10 col-xs-offset-1 page-section__overlay-image__inner">
-					<span class="page-section__overlay-image__close js-image-close">
+					<span id="js-image-close" class="page-section__overlay-image__close">
 						<img class="svg" src="<?php echo get_template_directory_uri() ?>/img/svg/ecoflam__close.svg" alt="" width="12px" height="12px">
 					</span>
-					<img class="js-image-overlay-image page-section__overlay-image__img" src="">
-					<p class="js-category page-section__text__category js-image-overlay-category text-left color-grey">
-						YO						
+					<span id="js-next" class="page-section__overlay-image__next"></span>
+					<span id="js-previous" class="page-section__overlay-image__previous"></span>
+					<img id="js-image-overlay-image" class="page-section__overlay-image__img" src="">
+					<p id="js-image-overlay-category" class="page-section__text__category text-left color-grey">
+						Categorie
 					</p>
-					<p class="js-title page-section__text__title js-image-overlay-title text-left color-text-black">
-						YO	
+					<p id="js-image-overlay-title" class="page-section__text__title text-left color-text-black">
+						Titre
 					</p>
 
-					<p class="js-description page-section__text__description js-image-overlay-description text-left color-text-black">
-						YO	
+					<p id="js-image-overlay-description" class="page-section__text__description text-left color-text-black">
+						Description
 					</p>	
 				</div>
 			</div>
@@ -63,7 +65,7 @@
 							style="background-image: url('<?php echo $url; ?>');"
 						<?php } else { ?>
 							class="background-color-grey page-section__inner"
-						<?php } ?> class="page-section__inner">
+						<?php } ?> class="page-section__inner js-image">
 						
 						<div class="page-section__text text-left">
 							<p class="js-category page-section__text__category color-white">

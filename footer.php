@@ -86,5 +86,11 @@
 		    }
 		?>
 		<?php wp_footer(); ?>
+		<script>
+
+        	// tell Tocca.js to add custom events like 'tap' only on touch devices
+        	var JUST_ON_TOUCH_DEVICES = true;
+
+    	</script>
 	</body><!-- /body -->
 </html><!-- /html -->

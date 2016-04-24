@@ -1,4 +1,4 @@
-jQuery(window).load(function() {
+$(window).load(function() {
       // console.log("window load occurred!");
       "use strict";
 });
@@ -20,7 +20,7 @@ var home = {
 
 	// FUNCTIONS
 	init: function() {
-		this.$body = jQuery('body');
+		this.$body = $('body');
 		this._initPlugins();
 	},
 
@@ -47,7 +47,7 @@ var home = {
 		// This variable refers to the application itself
 		var _this = this;
 		
-		_slider_container = jQuery( element )[0];
+		_slider_container = $( element )[0];
 
 		if( !_slider_container ){
 
@@ -76,7 +76,7 @@ var home = {
 
 		// KEYDOWN
 		// SRC: http://codepen.io/peduarte/pen/wKwbYJ
-		jQuery( document )
+		$( document )
 			.on( 'keydown keyup', function( event ) {
 				
 				if( _this._is_animating === true ){

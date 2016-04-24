@@ -41,6 +41,7 @@ module.exports = {
     javascript: {
         // Source of Javascript files
         src: [
+            'node_modules/tocca/Tocca.js',
             'node_modules/wallop/js/Wallop.js',
             'node_modules/waypoints/lib/jquery.waypoints.min.js',
             'node_modules/smoothstate/src/jquery.smoothState.js',

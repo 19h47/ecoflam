@@ -217,57 +217,57 @@
 					
 					<div class="row center-xs brands">
 						
-						<a class="col-xs-6 col-sm-3" href="http://www.altechpoeles.com">
+						<a class="col-xs-6 col-sm-3" href="http://www.altechpoeles.com" target="_blank">
 							<img alt="altechpoeles" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__altechpoeles.svg"  width="58" height="23">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.bgfires.com">
+						<a class="col-xs-6 col-sm-3" href="http://www.bgfires.com" target="_blank">
 							<img alt="bgfires" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__bgfires.svg"  width="90" height="27">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.poujoulat.fr/fr/">
+						<a class="col-xs-6 col-sm-3" href="http://www.poujoulat.fr/fr/" target="_blank">
 							<img alt="poujoulat" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__poujoulat.svg" width="86" height="47">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.danskan.be">
+						<a class="col-xs-6 col-sm-3" href="http://www.danskan.be" target="_blank">
 							<img alt="danskan" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__danskan.svg" width="46" height="46">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.dixneuf.com">
+						<a class="col-xs-6 col-sm-3" href="http://www.dixneuf.com" target="_blank">
 							<img alt="dixneuf" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__dixneuf.svg" width="89" height="26">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.scan-line.fr">
+						<a class="col-xs-6 col-sm-3" href="http://www.scan-line.fr" target="_blank">
 							<img alt="scan-line" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__scan-line.svg" width="77" height="41">
 						</a>
 				
-						<a class="col-xs-6 col-sm-3" href="http://www.kal-fire.com/fr">
+						<a class="col-xs-6 col-sm-3" href="http://www.kal-fire.com/fr" target="_blank">
 							<img alt="kal-fire" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__kal-fire.svg" width="99" height="31">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://nordpeis.fr">
+						<a class="col-xs-6 col-sm-3" href="http://nordpeis.fr" target="_blank">
 							<img alt="nordpeis" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__nordpeis.svg" width="92" height="31">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.olsberg.com">
+						<a class="col-xs-6 col-sm-3" href="http://www.olsberg.com/poeles/fr/" target="_blank">
 							<img src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__olsberg.svg" width="87" height="34" alt="Olsberg">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.spartherm.com/fr/accueil/">
+						<a class="col-xs-6 col-sm-3" href="http://www.spartherm.com/fr/accueil/" target="_blank">
 							<img alt="spartherm" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__spartherm.svg" width="126" height="58">
 						</a>
-						<a class="col-xs-6 col-sm-3" href="http://stuv.com/fr">
+						<a class="col-xs-6 col-sm-3" href="http://stuv.com/fr" target="_blank">
 							<img alt="stuv" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__stuv.svg" width="59" height="19">
 						</a>
-						<a class="col-xs-6 col-sm-3" href="http://www.thermorossi.fr">
+						<a class="col-xs-6 col-sm-3" href="http://www.thermorossi.fr" target="_blank">
 							<img alt="thermorossi" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__thermorossi.svg" width="123" height="18">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.traforart.net">
+						<a class="col-xs-6 col-sm-3" href="http://www.traforart.net" target="_blank">
 							<img alt="traforart" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__traforart.svg" width="126" height="11">
 						</a>
 
-						<a class="col-xs-6 col-sm-3" href="http://www.tulp.eu">
+						<a class="col-xs-6 col-sm-3" href="http://www.tulp.eu" target="_blank">
 							<img alt="tulp" src="<?php echo get_template_directory_uri() ?>/img/brand-logo/logo__tulp.svg" width="86" height="40">
 						</a>
 					</div>
@@ -379,10 +379,12 @@
 
 					<?php endwhile; ?>
 
-					<?php wp_reset_query(); ?>
 
 			  	</div>
-				
+			  	<?php $i= 0; ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+				<?php if( $i >= 1): ?>
+
 				<nav class="row end-xs">
 					<div class="event-nav col-xs-12">
 		  				<button class="event-buttonPrevious">
@@ -393,6 +395,10 @@
 		  				</button>
 		  			</div>
 		  		</nav>
+				
+				<?php endif; ?>
+		  		<?php endwhile; ?>
+				<?php wp_reset_query(); ?>
 			</div>	
 		</div>
 	</section>

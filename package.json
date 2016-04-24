@@ -32,6 +32,7 @@
     "postcss-flexibility": "^1.0.3",
     "require-dir": "^0.3.0",
     "smoothstate": "^0.7.2",
+    "tocca": "^1.0.0",
     "typi": "^2.0.0",
     "wallop": "^2.2.4",
     "waypoints": "^4.0.0"

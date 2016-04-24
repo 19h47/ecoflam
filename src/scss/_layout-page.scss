@@ -4,9 +4,24 @@
 
 .image--is-open{
 	
-	.page-section__overlay-image
+	.page-section
 	{
-		display: block;
+		&__overlay-image
+		{
+			display: block;
+		}
+		&__text
+		{
+			&__title
+			{
+				opacity: 1;
+			}
+
+			&__category
+			{
+				opacity: 1;
+			}
+		}
 	}
 }
 
@@ -30,6 +45,7 @@
 		&__img
 		{
 			// margin: 1rem;
+			width: 100%;
 			max-width: 100%;
 			height: auto;
 		}
@@ -58,6 +74,44 @@
 			{
 				height: 2.5rem;
 			}
+		}
+
+		&__previous
+		{
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			top: 50%;
+			margin: 1rem;
+			height: 2.5rem;
+			width: 2.5rem;
+			background-color: $red;
+			background-image: url('#{$svg-dir}/svg/ecoflam__nav-previous.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			color: $white;
+			cursor: pointer;
+			transform: translate(0, -50%);
+		}
+
+		&__next
+		{
+			display: block;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			top: 50%;
+			margin: 1rem;
+			height: 2.5rem;
+			width: 2.5rem;
+			background-color: $red;
+			background-image: url('#{$svg-dir}/svg/ecoflam__nav-next.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			color: $white;
+			cursor: pointer;
+			transform: translate(0, -50%);
 		}
 	}
 
@@ -135,6 +189,8 @@
 			letter-spacing: 0;
 			text-transform: uppercase;
 			font-family: $font-title;
+			opacity: 0;
+			transition: 0.3s ease;
 		}
 
 		&__title
@@ -142,6 +198,8 @@
 			margin: 0;
 			// color: $white;
 			font-style: italic;
+			opacity: 0;
+			transition: 0.3s ease;
 
 		}
 
@@ -175,13 +233,14 @@
 
 	&__overlay
 	{
+		// display: none;
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		top: 0;
 		// margin: 1rem;
-		background-color: $grey;
+		background-color: transparent;
 		opacity: 0.8;
 		transition: 0.3s ease;
 		z-index: 1;
@@ -199,6 +258,7 @@
 
 			&__text
 			{
+
 				&__button
 				{
 					&::after
@@ -208,7 +268,18 @@
 					    right: auto;
 					}
 				}
+
+				&__title
+				{
+					opacity: 1;
+				}
+				
+				&__category
+				{
+					opacity: 1;
+				}
 			}
+
 		}
 	}
 

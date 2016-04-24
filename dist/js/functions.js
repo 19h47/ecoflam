@@ -1,4 +1,237 @@
 /**
+ *
+ * Version: 1.0.0
+ * Author: Gianluca Guarini
+ * Contact: gianluca.guarini@gmail.com
+ * Website: http://www.gianlucaguarini.com/
+ * Twitter: @gianlucaguarini
+ *
+ * Copyright (c) Gianluca Guarini
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ **/
+(function(doc, win) {
+  'use strict'
+  if (typeof doc.createEvent !== 'function') return false // no tap events here
+  // helpers
+  var useJquery = typeof jQuery !== 'undefined',
+    msEventType = function(type) {
+      var lo = type.toLowerCase(),
+        ms = 'MS' + type
+      return navigator.msPointerEnabled ? ms : lo
+    },
+    // was initially triggered a "touchstart" event?
+    wasTouch = false,
+    touchevents = {
+      touchstart: msEventType('PointerDown') + ' touchstart',
+      touchend: msEventType('PointerUp') + ' touchend',
+      touchmove: msEventType('PointerMove') + ' touchmove'
+    },
+    setListener = function(elm, events, callback) {
+      var eventsArray = events.split(' '),
+        i = eventsArray.length
+
+      while (i--) {
+        elm.addEventListener(eventsArray[i], callback, false)
+      }
+    },
+    getPointerEvent = function(event) {
+      return event.targetTouches ? event.targetTouches[0] : event
+    },
+    getTimestamp = function () {
+      return new Date().getTime()
+    },
+    sendEvent = function(elm, eventName, originalEvent, data) {
+      var customEvent = doc.createEvent('Event')
+      customEvent.originalEvent = originalEvent
+      data = data || {}
+      data.x = currX
+      data.y = currY
+      data.distance = data.distance
+
+      // jquery
+      if (useJquery) {
+        customEvent = $.Event(eventName, {originalEvent: originalEvent})
+        jQuery(elm).trigger(customEvent, data)
+      }
+
+      // addEventListener
+      if (customEvent.initEvent) {
+        for (var key in data) {
+          customEvent[key] = data[key]
+        }
+        customEvent.initEvent(eventName, true, true)
+        elm.dispatchEvent(customEvent)
+      }
+
+      // detect all the inline events
+      // also on the parent nodes
+      while (elm) {
+        // inline
+        if (elm['on' + eventName])
+          elm['on' + eventName](customEvent)
+        elm = elm.parentNode
+      }
+
+    },
+
+    onTouchStart = function(e) {
+      /**
+       * Skip all the mouse events
+       * events order:
+       * Chrome:
+       *   touchstart
+       *   touchmove
+       *   touchend
+       *   mousedown
+       *   mousemove
+       *   mouseup <- this must come always after a "touchstart"
+       *
+       * Safari
+       *   touchstart
+       *   mousedown
+       *   touchmove
+       *   mousemove
+       *   touchend
+       *   mouseup <- this must come always after a "touchstart"
+       */
+
+      // it looks like it was a touch event!
+      if (e.type !== 'mousedown')
+        wasTouch = true
+
+      // skip this event we don't need to track it now
+      if (e.type === 'mousedown' && wasTouch) return
+
+      var pointer = getPointerEvent(e)
+
+      // caching the current x
+      cachedX = currX = pointer.pageX
+      // caching the current y
+      cachedY = currY = pointer.pageY
+
+      longtapTimer = setTimeout(function() {
+        sendEvent(e.target, 'longtap', e)
+        target = e.target
+      }, longtapThreshold)
+
+      // we will use these variables on the touchend events
+      timestamp = getTimestamp()
+
+      tapNum++
+
+    },
+    onTouchEnd = function(e) {
+
+      // skip the mouse events if previously a touch event was dispatched
+      // and reset the touch flag
+      if (e.type === 'mouseup' && wasTouch) {
+        wasTouch = false
+        return
+      }
+
+      var eventsArr = [],
+        now = getTimestamp(),
+        deltaY = cachedY - currY,
+        deltaX = cachedX - currX
+
+       // clear the previous timer if it was set
+      clearTimeout(dblTapTimer)
+      // kill the long tap timer
+      clearTimeout(longtapTimer)
+
+      if (deltaX <= -swipeThreshold)
+        eventsArr.push('swiperight')
+
+      if (deltaX >= swipeThreshold)
+        eventsArr.push('swipeleft')
+
+      if (deltaY <= -swipeThreshold)
+        eventsArr.push('swipedown')
+
+      if (deltaY >= swipeThreshold)
+        eventsArr.push('swipeup')
+
+      if (eventsArr.length) {
+        for (var i = 0; i < eventsArr.length; i++) {
+          var eventName = eventsArr[i]
+          sendEvent(e.target, eventName, e, {
+            distance: {
+              x: Math.abs(deltaX),
+              y: Math.abs(deltaY)
+            }
+          })
+        }
+        // reset the tap counter
+        tapNum = 0
+      } else {
+
+        if (
+          cachedX >= currX - tapPrecision &&
+          cachedX <= currX + tapPrecision &&
+          cachedY >= currY - tapPrecision &&
+          cachedY <= currY + tapPrecision
+        ) {
+          if (timestamp + tapThreshold - now >= 0)
+          {
+            // Here you get the Tap event
+            sendEvent(e.target, tapNum >= 2 && target === e.target ? 'dbltap' : 'tap', e)
+            target= e.target
+          }
+        }
+
+        // reset the tap counter
+        dblTapTimer = setTimeout(function() {
+          tapNum = 0
+        }, dbltapThreshold)
+
+      }
+    },
+    onTouchMove = function(e) {
+      // skip the mouse move events if the touch events were previously detected
+      if (e.type === 'mousemove' && wasTouch) return
+
+      var pointer = getPointerEvent(e)
+      currX = pointer.pageX
+      currY = pointer.pageY
+    },
+    swipeThreshold = win.SWIPE_THRESHOLD || 100,
+    tapThreshold = win.TAP_THRESHOLD || 150, // range of time where a tap event could be detected
+    dbltapThreshold = win.DBL_TAP_THRESHOLD || 200, // delay needed to detect a double tap
+    longtapThreshold = win.LONG_TAP_THRESHOLD || 1000, // delay needed to detect a long tap
+    tapPrecision = win.TAP_PRECISION / 2 || 60 / 2, // touch events boundaries ( 60px by default )
+    justTouchEvents = win.JUST_ON_TOUCH_DEVICES,
+    tapNum = 0,
+    currX, currY, cachedX, cachedY, timestamp, target, dblTapTimer, longtapTimer
+
+  //setting the events listeners
+  // we need to debounce the callbacks because some devices multiple events are triggered at same time
+  setListener(doc, touchevents.touchstart + (justTouchEvents ? '' : ' mousedown'), onTouchStart)
+  setListener(doc, touchevents.touchend + (justTouchEvents ? '' : ' mouseup'), onTouchEnd)
+  setListener(doc, touchevents.touchmove + (justTouchEvents ? '' : ' mousemove'), onTouchMove)
+
+}(document, window));
+
+/**
 * Wallop.js
 *
 * @fileoverview Minimal JS library to show & hide things
@@ -932,6 +1165,7 @@ var app = {
 
         home.init();
         page.init('main');
+        // image.init();
         
 	},
 
@@ -941,6 +1175,7 @@ var app = {
         console.log('Matrix: Reloaded')
 
         app.init();
+        image.init();
     },
 
 	_initPlugins: function(){
@@ -979,6 +1214,8 @@ var app = {
                     $($container).fadeOut();
                     
                     image.close();
+                    // Deregister custom event
+                    $('body').unbind('toggle.image');
                     // Ensure menu is closed
                     menu.close();
                 }
@@ -987,19 +1224,14 @@ var app = {
                 duration: 250,
                 render: function ($container) {
 
-                
-
                 }
             },
             onReady: {
                 duration: 0,
                 render: function ($container, $newContent) {
-                    
-                   
+                                       
                     // Remove your CSS animation reversing class
                     _this._$body.removeClass('is-exiting');
-
-                    
 
                     // Inject the new content
                     $container.html($newContent);
@@ -1009,17 +1241,10 @@ var app = {
             onAfter: function($container, $newContent){
                 // Reload script
                 _this._reload();
-                
-                // if( $('div.wpcf7 > form').length ){
-                //     console.log('wpcf7 selector exist');
-                //     // $('div.wpcf7 > form').wpcf7InitForm();
-                // } else {
-                //     console.log('wpcf7 selector doesn\'t exist');
-                // }
 
                 $($container).fadeIn();
 
-                console.log( information.page_slug );
+                // console.log( information.page_slug );
                 
 
             }
@@ -1032,7 +1257,7 @@ $(function() {
     app.init();
     
 });
-jQuery(window).load(function() {
+$(window).load(function() {
       // console.log("window load occurred!");
       "use strict";
 });
@@ -1054,7 +1279,7 @@ var home = {
 
 	// FUNCTIONS
 	init: function() {
-		this.$body = jQuery('body');
+		this.$body = $('body');
 		this._initPlugins();
 	},
 
@@ -1081,7 +1306,7 @@ var home = {
 		// This variable refers to the application itself
 		var _this = this;
 		
-		_slider_container = jQuery( element )[0];
+		_slider_container = $( element )[0];
 
 		if( !_slider_container ){
 
@@ -1110,7 +1335,7 @@ var home = {
 
 		// KEYDOWN
 		// SRC: http://codepen.io/peduarte/pen/wKwbYJ
-		jQuery( document )
+		$( document )
 			.on( 'keydown keyup', function( event ) {
 				
 				if( _this._is_animating === true ){
@@ -1322,7 +1547,7 @@ var menu = {
 
     init: function() {
 
-    	this._$body = jQuery('body');
+    	this._$body = $('body');
 
     	this._initEvents();
     },
@@ -1338,7 +1563,7 @@ var menu = {
             
 	        // BUBBLE UP
 	        // When an event is triggered, it spreads throughout his parents until it reaches the root.
-	        jQuery(this).trigger(_this._toggleMenu);
+	        $(this).trigger(_this._toggleMenu);
 	    });
 
 	    this._$body
@@ -1406,12 +1631,42 @@ var image = {
 
 	_classImageOpen: 'image--is-open',
 	_toggleImage: 'toggle.image',
+	_current: 'is-current',
 
+	// DOM private elements
 	_$body: null,
 
+	_$containers: null,
+
+	_$categories: null,
+	_$titles: null,
+	_$descriptions: null,
+
+	_$next: null,
+	_$previous: null,
+
+	_$resultImage: null,
+	_$resultCategory: null,
+	_$resultTitle: null,
+	_$resultDescription: null,
+	
 	init: function(){
 
-		this._$body = jQuery('body');
+		this._$body = $('body');
+
+		this._$containers = $('.js-toggle-image');
+
+		this._$categories = $('.js-category');
+		this._$titles = $('.js-title');
+		this._$descriptions = $('.js-description');
+
+		this._$next = $('#js-next');
+		this._$previous = $('#js-previous');
+
+		this._$resultImage = $('#js-image-overlay-image');
+		this._$resultCategory = $('#js-image-overlay-category');
+		this._$resultTitle = $('#js-image-overlay-title');
+		this._$resultDescription = $('#js-image-overlay-description');
 
 		this._initEvents();
 	},
@@ -1419,9 +1674,17 @@ var image = {
 	_initEvents: function(){
 		var _this = this;
 
+		_this.next();
+		_this.previous();
+
 	    // TOGGLE IMAGE
-	    jQuery(document).on('click', '.js-toggle-image', function(e){
-	    	
+	    _this._$containers.on('click', function(e){
+
+	    	e.stopPropagation();
+
+	    	$(this).toggleClass(_this._current);
+
+	    	console.log('OPEN IMAGE');
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
 	        	$(this)
@@ -1430,29 +1693,22 @@ var image = {
 					.replace( /.*\s?url\([\'\"]?/, '')
 					.replace( /[\'\"]?\).*/, '');
 
-				// GET TITLE
-				var _title = $(this).find('.js-title').text();
+				_this._$title = $(this).find(_this._$titles).text();
+				_this._$category = $(this).find(_this._$categories).text();
+				_this._$description = $(this).find(_this._$descriptions).text();
 
-				// GET CAT
-				var _category = $(this).find('.js-category').text();
-
-				// GET DESCRIPTION
-				var _description = $(this).find('.js-description').text();
-
-				console.log(_description);
-
-	    	if( !jQuery(this).children().attr('style') ){
+	    	if( !$(this).children().attr('style') ){
 
 	    		$(_this._box).toggleClass('show');
-				$('.js-image-overlay-image').hide();
-				$('.js-image-overlay-category').empty().append(_category);
-				$('.js-image-overlay-title').empty().append(_title);
+				$('#js-image-overlay-image').hide();
+				$('#js-image-overlay-category').empty().append(_this._$category);
+				$('#js-image-overlay-title').empty().append(_this._$title);
 
-				if( _description.length )
+				if( _this._$description.length )
 				{
-					$('.js-image-overlay-description').empty().append(_description);
+					$('#js-image-overlay-description').empty().append(_this._$description);
 				} else {
-					$('.js-image-overlay-description').empty()
+					$('#js-image-overlay-description').empty();
 				}
 
 				// return;
@@ -1460,42 +1716,38 @@ var image = {
 			} else {
 
 				$(_this._box).toggleClass( 'show' );
-				$( '.js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '.js-image-overlay-title' ).html(_title);
-				$( '.js-image-overlay-category' ).html(_category);
+				$( '#js-image-overlay-image' ).show().attr( 'src', backgroundImage );
+				$( '#js-image-overlay-title' ).html(_this._$title);
+				$( '#js-image-overlay-category' ).html(_this._$category);
 
-				if( _description.length )
+				if( _this._$description.length )
 				{
-					$('.js-image-overlay-description').empty().append(_description);
+					$('#js-image-overlay-description').empty().append(_this._$description);
 				} else {
-					$('.js-image-overlay-description').empty()
+					$('#js-image-overlay-description').empty();
 				}
 			}
-	     e.stopPropagation();  
-	     jQuery(this).trigger( _this._toggleImage ); 
+	     
+
+	     $(this).trigger( _this._toggleImage ); 
 	    });
 
 	    _this._$body
 	        .on( this._toggleImage , function(e) {
 
-	            // console.log( $( e.target ) );
-
 	            _this._$body.toggleClass(_this._classImageOpen);
 		     
 	        })
 
-	        .on( 'click', '.js-image-close', function(e){
+	        .on( 'click', '#js-image-close', function(e){
 	        	_this.close();
 	        }) 
 
 	        .on('click', function(e){
-	        
-		        // e.preventDefault();
 
-		        // console.log( e.target );
+		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('#js-image-overlay').length ) {
 
-		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('.js-image-overlay').length ) {
-
+		        	console.log('body');
 		            _this.close();
 
 		        } 
@@ -1503,12 +1755,112 @@ var image = {
 	},
 
 	close: function(){
-		this._$body.removeClass(this._classImageOpen);
+		var _this = this;
+		_this._$body.removeClass(_this._classImageOpen);
+		_this._$containers.removeClass(_this._current);
+
+	},
+
+	next: function(){
+		var _this = this;
+
+		_this._$next.on('click', function(e){
+			console.log('NEXT');
+
+			// Current slide
+			var _$currentSlide = _this._$containers.filter('.' + _this._current);
+
+			// Get index from current slide
+			var _currentSlideIndex = _$currentSlide.index();
+
+			// Remove class from current slide
+			_$currentSlide.removeClass(_this._current);
+
+			// Get next slide (based on ancient current index)
+			var _nextSlideIndex = _currentSlideIndex + 1;
+
+			// If we are on last item return to the first
+			if(_nextSlideIndex == _this._$containers.length )
+			{
+				var _nextSlideIndex = 0;
+			}
+
+			var _$nextSlide = _this._$containers.eq(_nextSlideIndex);
+			
+			// Add class on next slide
+			_$nextSlide.addClass(_this._current);
+
+			// GET CATEGORY, TITLE, DESCRIPTION, IMAGE
+
+			var _$backgroundImage = _$nextSlide
+							.children()
+							.css('background-image')
+							.replace( /.*\s?url\([\'\"]?/, '')
+							.replace( /[\'\"]?\).*/, '');
+
+			var _$category = _$nextSlide.find(_this._$categories).text();
+			var _$title = _$nextSlide.find(_this._$titles).text();
+			var _$description = _$nextSlide.find(_this._$descriptions).text();
+
+			// INJECT
+			_this._$resultImage.attr( 'src', _$backgroundImage );
+			_this._$resultCategory.empty().append(_$category);
+			_this._$resultTitle.empty().append(_$title);
+			_this._$resultDescription.empty().append(_$description);
+			
+		});
+	},
+
+	previous: function(){
+		var _this = this;
+
+		_this._$previous.on('click', function(e){
+
+			// Current slide
+			var _$currentSlide = _this._$containers.filter('.' + _this._current);
+
+			// Get index from current slide
+			var _currentSlideIndex = _$currentSlide.index();
+
+			// Remove class from current slide
+			_$currentSlide.removeClass(_this._current);
+
+			// Get previous slide (based on ancient current index)
+			var _previousSlideIndex = _currentSlideIndex - 1;
+
+			// If we are on the first item return to the last
+			if(_previousSlideIndex == -1 )
+			{
+				var _previousSlideIndex = _this._$containers.length - 1;
+			}
+
+			var _$previousSlide = _this._$containers.eq(_previousSlideIndex);
+			
+			// Add class on next slide
+			_$previousSlide.addClass(_this._current);
+
+			// GET CATEGORY, TITLE, DESCRIPTION, IMAGE
+
+			var _$backgroundImage = _$previousSlide
+							.children()
+							.css('background-image')
+							.replace( /.*\s?url\([\'\"]?/, '')
+							.replace( /[\'\"]?\).*/, '');
+
+			var _$category = _$previousSlide.find(_this._$categories).text();
+			var _$title = _$previousSlide.find(_this._$titles).text();
+			var _$description = _$previousSlide.find(_this._$descriptions).text();
+
+			// INJECT
+			_this._$resultImage.attr( 'src', _$backgroundImage );
+			_this._$resultCategory.empty().append(_$category);
+			_this._$resultTitle.empty().append(_$title);
+			_this._$resultDescription.empty().append(_$description);
+			
+		});
 	}
 };
 
-jQuery(function(){
-
+$(function(){
 	image.init();
-
 });
