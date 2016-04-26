@@ -4,7 +4,9 @@
 
 .site-footer
 {
+	position: relative;
 	background-color: $black;
+	z-index: 0;
 
 	.site-section__title
 	{

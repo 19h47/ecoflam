@@ -13,6 +13,7 @@ var image = {
 	_$titles: null,
 	_$descriptions: null,
 
+	_$close: null,
 	_$next: null,
 	_$previous: null,
 
@@ -31,6 +32,7 @@ var image = {
 		this._$titles = $('.js-title');
 		this._$descriptions = $('.js-description');
 
+		this._$close = $('#js-image-close');
 		this._$next = $('#js-next');
 		this._$previous = $('#js-previous');
 
@@ -55,7 +57,6 @@ var image = {
 
 	    	$(this).toggleClass(_this._current);
 
-	    	console.log('OPEN IMAGE');
 	        // GET URL http://stackoverflow.com/a/23784236
 	        var backgroundImage = 
 	        	$(this)
@@ -71,15 +72,15 @@ var image = {
 	    	if( !$(this).children().attr('style') ){
 
 	    		$(_this._box).toggleClass('show');
-				$('#js-image-overlay-image').hide();
-				$('#js-image-overlay-category').empty().append(_this._$category);
-				$('#js-image-overlay-title').empty().append(_this._$title);
+				$(_this._$resultImage).hide();
+				$(_this._$resultCategory).empty().append(_this._$category);
+				$(_this._$resultTitle).empty().append(_this._$title);
 
 				if( _this._$description.length )
 				{
-					$('#js-image-overlay-description').empty().append(_this._$description);
+					$(_this._$resultDescription).empty().append(_this._$description);
 				} else {
-					$('#js-image-overlay-description').empty();
+					$(_this._$resultDescription).empty();
 				}
 
 				// return;
@@ -87,20 +88,25 @@ var image = {
 			} else {
 
 				$(_this._box).toggleClass( 'show' );
-				$( '#js-image-overlay-image' ).show().attr( 'src', backgroundImage );
-				$( '#js-image-overlay-title' ).html(_this._$title);
-				$( '#js-image-overlay-category' ).html(_this._$category);
+				$( _this._$resultImage).show().attr( 'src', backgroundImage );
+				$( _this._$resultTitle).html(_this._$title);
+				$( _this._$resultCategory).html(_this._$category);
 
 				if( _this._$description.length )
 				{
-					$('#js-image-overlay-description').empty().append(_this._$description);
+					$(_this._$resultDescription).empty().append(_this._$description);
 				} else {
-					$('#js-image-overlay-description').empty();
+					$(_this._$resultDescription).empty();
 				}
 			}
 	     
-
-	     $(this).trigger( _this._toggleImage ); 
+			// e.stopPropagation();
+	     	$(this).trigger( _this._toggleImage ); 
+	    });
+		
+		// CLOSE BUTTON
+		_this._$close.on( 'click', function(e){
+	        _this.close();
 	    });
 
 	    _this._$body
@@ -108,17 +114,11 @@ var image = {
 
 	            _this._$body.toggleClass(_this._classImageOpen);
 		     
-	        })
-
-	        .on( 'click', '#js-image-close', function(e){
-	        	_this.close();
 	        }) 
-
 	        .on('click', function(e){
 
 		        if( _this._$body.hasClass( _this._classImageOpen ) && !$(e.target).closest('#js-image-overlay').length ) {
 
-		        	console.log('body');
 		            _this.close();
 
 		        } 
@@ -127,6 +127,7 @@ var image = {
 
 	close: function(){
 		var _this = this;
+		console.log('CLOSE');
 		_this._$body.removeClass(_this._classImageOpen);
 		_this._$containers.removeClass(_this._current);
 
@@ -186,7 +187,7 @@ var image = {
 		var _this = this;
 
 		_this._$previous.on('click', function(e){
-
+			console.log('PREVIOUS');
 			// Current slide
 			var _$currentSlide = _this._$containers.filter('.' + _this._current);
 

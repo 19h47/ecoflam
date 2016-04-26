@@ -172,10 +172,12 @@
 {
 	&-wrapper
 	{
+		position: relative;
 		background-image: url('#{$svg-dir}/svg/ecoflam__background-page.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
+		z-index: 2;
 	}
 }
 
