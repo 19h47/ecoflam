@@ -5,19 +5,27 @@
 			<div class="col-xs-12">
 		
 				<h2 class="site-section__title has-no-count">
-					<?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );?>
-					<?php echo $term->name; ?>
+					<?php 
+
+					$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+					echo $term->name; 
+
+					?>
 				</h2>
 
 			</div>
 		</div>
 	</div>
-	<?php $params = array(
-		'terms' 	=> get_terms("product_category"), 
+	<?php 
+
+	$params = array(
+		'terms' 	=> get_terms( 'product_category' ), 
 		'term_name'	=> 'product',
 	);
+	
+	get_partial( 'components/content', 'navigation', $params ); 
+	get_partial( 'components/content', 'page', $params ); 
+
 	?>
-	<?php get_partial( 'components/content', 'navigation', $params ); ?>
-	<?php get_partial( 'components/content', 'page', $params ); ?>
 </section>
 <?php get_footer(); ?>

@@ -3,6 +3,7 @@
 if ( ! function_exists( 'get_partial' ) ) :
 
 /**
+ * @author  Julien Vasseur <julien@poigneedemainvirile.com>
  * Load given template with arguments as array.
  * arguments. 
  * See get_template_part().

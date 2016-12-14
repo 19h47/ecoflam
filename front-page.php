@@ -94,30 +94,31 @@
 			<div class="inner-wrapper js-inner row top-xs">
 				<div class="site-section__text col-xs-12 col-sm-4">
 		
-					<?php if ( get_field('introduction_text-left') ){ ?>
+					<?php if ( get_field( 'introduction_text-left' ) ) : ?>
 					
 					<p class="color-red text-20">
-						<?php the_field('introduction_text-left'); ?>
+						<?php the_field( 'introduction_text-left' ) ?>
 					</p>
-					<?php } ?>
+
+					<?php endif ?>
 
 				</div>
 
 				<div class="site-section__text col-xs-12 col-sm-8 text-16 color-grey text-multiple-column">
 					
-					<?php if ( get_field('introduction_text-center') ){ ?>
+					<?php if ( get_field('introduction_text-center') ) : ?>
 					
 					<p class="display-inline-block">
 						<?php the_field('introduction_text-center'); ?>
 					</p>
-					<?php } ?>
+					<?php endif; ?>
 
-					<?php if ( get_field('introduction_text-right') ){ ?>
+					<?php if ( get_field('introduction_text-right') ) : ?>
 					
 					<p class="display-inline-block">
 						<?php the_field('introduction_text-right'); ?>
 					</p>
-					<?php } ?>
+					<?php endif; ?>
 
 				</div>
 			</div>
@@ -166,14 +167,14 @@
 		<div class="inner">
 			<div class="inner-wrapper js-inner row start-xs">	
 				<div class="col-xs-12 col-sm-6 inner-wrapper__image">
-					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/">
+					<a class="display-block" href="<?php echo home_url( '/les-produits/poeles-a-bois/' ) ?>">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-01.jpg" alt="Poêles" width="440" height="535">
 					</a>
 				</div>
 				<div class="col-xs-12 col-sm-6 inner-wrapper__image">
 					<p class="products__title h3">Poêles</p>
-					<a href="<?php echo home_url( '/' ) ?>les-produits/poeles-a-bois/" class="products__link hoverable">Voir</a>
-					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/cheminees/">
+					<a href="<?php echo home_url( '/les-produits/poeles-a-bois/' ) ?>" class="products__link hoverable">Voir</a>
+					<a class="display-block" href="<?php echo home_url( '/les-produits/cheminees/' ) ?>">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-02.jpg" alt="Cheminées" width="443" height="296">
 					</a>
 					<p class="products__title h3">Cheminées</p>
@@ -185,7 +186,7 @@
 		<div class="inner is-last">
 			<div class="row inner-wrapper js-inner center-xs">
 				<div class="col-xs-12 col-md-9 inner-wrapper__image">
-					<a class="display-block" href="<?php echo home_url( '/' ) ?>les-produits/inserts/">
+					<a class="display-block" href="<?php echo home_url( '/les-produits/inserts/' ) ?>">
 						<img class="products__img grayscale" src="<?php echo get_template_directory_uri() ?>/img/ecoflam__product-03.jpg" alt="Inserts" width="700" height="284">
 					</a>
 				</div>
@@ -193,7 +194,7 @@
 			<div class="row inner-wrapper js-inner center-xs">
 				<div class="col-xs-12 col-md-9 text-left-m text-center-xs">
 					<p class="products__title h3">Inserts</p>
-					<a href="<?php echo home_url( '/' ) ?>les-produits/inserts/" class="products__link text-left-m text-center-xs hoverable">Voir</a>
+					<a href="<?php echo home_url( '/les-produits/inserts/' ) ?>" class="products__link text-left-m text-center-xs hoverable">Voir</a>
 				</div>
 			</div>
 		</div>
@@ -369,10 +370,10 @@
 				    	</p>
 				    	<?php } ?>
 				    	<p class="event-item__place color-red h3">
-				    		<?php the_title(); ?>
+				    		<?php the_title() ?>
 				    	</p>
 				    	<p class="event-item__description">
-				    		<?php the_excerpt(); ?>
+				    		<?php the_excerpt() ?>
 				    		
 				    	</p>
 				    </div>
@@ -381,25 +382,36 @@
 
 
 			  	</div>
-			  	<?php $i= 0; ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-				<?php if( $i >= 1): ?>
+			  	<?php 
 
-				<nav class="row end-xs">
-					<div class="event-nav col-xs-12">
-		  				<button class="event-buttonPrevious">
-		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-previous.svg" alt="" width="12" height="15">
-		  				</button>
-		  				<button class="event-buttonNext">
-		  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-next.svg" alt="" width="12" height="15">
-		  				</button>
-		  			</div>
-		  		</nav>
+			  	$i = 0;
 				
-				<?php endif; ?>
-		  		<?php endwhile; ?>
-				<?php wp_reset_query(); ?>
+				while ( have_posts() ) : the_post(); 
+					$i++;
+
+					if( $i >= 1) : ?>
+
+					<nav class="row end-xs">
+						<div class="event-nav col-xs-12">
+			  				<button class="event-buttonPrevious">
+			  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-previous.svg" alt="" width="12" height="15">
+			  				</button>
+			  				<button class="event-buttonNext">
+			  					<img class="svg" src="<?php echo get_template_directory_uri('') ?>/img/svg/ecoflam__nav-next.svg" alt="" width="12" height="15">
+			  				</button>
+			  			</div>
+			  		</nav>
+					
+					<?php 
+
+					endif;
+		  			
+		  		endwhile;
+				
+				wp_reset_query(); 
+
+				?>
 			</div>	
 		</div>
 	</section>
-<?php get_footer(); ?>
+<?php get_footer() ?>

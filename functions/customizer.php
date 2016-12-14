@@ -5,35 +5,6 @@
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
 function ecoflam_customize_register( $wp_customize ) {
-    
-    // Add company section -----------------------------------------------------
-    
-    // $wp_customize->add_section( 'company', array(
-    //     'title' => 'Informations de contact',
-    // ) );
-
-    // // Add Company settings and controls in related section
-    // $wp_customize->add_setting( 'company_email', array(
-    //     'type'      => 'option',
-    //     'transport' => 'postMessage',
-    // ) );
-    // $wp_customize->add_setting( 'company_phone', array(
-    //     'type'      => 'option',
-    //     'transport' => 'postMessage',
-    // ) );
-
-    // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_email', array(
-    //     'label'     => 'Email',
-    //     'section'   => 'company',
-    //     'settings'  => 'company_email',
-    //     'type'      => 'email',
-    // ) ) );
-    // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'company_phone', array(
-    //     'label'     => 'Numéro de téléphone',
-    //     'section'   => 'company',
-    //     'settings'  => 'company_phone',
-    // ) ) );
-
 
     // Add contact_information section -----------------------------------------------------
     

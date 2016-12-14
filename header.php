@@ -8,7 +8,8 @@
 	</head>
 	<body>
 		<div id="js-wrapper">
-			<div <?php body_class( $class ); ?>>
+
+			<div <?php body_class(); ?>>
 				<?php if( is_page() || is_tax() ) { ?>
 					<main class="page-wrapper">
 				<?php } ?>
@@ -50,13 +51,15 @@
 							<nav class="site-header__nav col-xs-12 col-sm-8 end-xs">
 									<button id="js-menu-close" class="hidden-from-l site-header__nav__button-close">Menu</button>
 									<?php
-										$args = array(
-											'theme_location'	=> 'primary',
-											'container'			=> false,
-											'menu_class'		=> 'menu menu-inline',
-										);
+									
+									$args = array(
+										'theme_location'	=> 'primary',
+										'container'			=> false,
+										'menu_class'		=> 'menu menu-inline',
+									);
 
-										wp_nav_menu( $args );
+									wp_nav_menu( $args );
+
 									?>
 								
 							</nav>
@@ -65,7 +68,7 @@
 							</div>
 						</div>
 
-						<?php if( is_front_page() ){ ?>
+						<?php if( is_front_page() ) : ?>
 
 						<div class="site-header__content">
 							<div class="inner-wrapper row center-xs top-xs">
@@ -81,6 +84,6 @@
 							</div>
 						</div>
 
-						<?php } ?>
+						<?php endif ?>
 					</div>
 				</header><!-- /site-header -->
