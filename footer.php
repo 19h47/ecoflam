@@ -20,9 +20,9 @@
 							</p>
 							<div class="site-footer__text row">
 								<div class="col-xs-12 col-sm-6 col-md-12 site-footer__text__inner">
-									<a href="https://www.google.fr/maps/place/32+Avenue+Jacques+Duclos,+37700+Saint-Pierre-des-Corps/@47.3797625,0.7201911,17z/data=!3m1!4b1!4m2!3m1!1s0x47fcd410ee8eb249:0x83f10976d113fefa" target="_blank">
+									<a href="https://www.google.fr/maps/place/E.Leclerc+La+Ville+aux+Dames/@47.3958611,0.7853845,15z/data=!4m5!3m4!1s0x0:0xe54ff8b11c57ab82!8m2!3d47.3958611!4d0.7853845" target="_blank">
 										<span class="color-red uppercase">
-											Saint Pierre des Corps
+											<?php echo _e( 'La Ville-aux-Dames', 'ecoflam' ) ?>
 										</span>
 										<br>
 										<br>
@@ -31,28 +31,28 @@
 									</a>
 									<br>
 									<!-- http://stackoverflow.com/a/2109339 -->
-									Tél. : <a href="tel:<?php echo preg_replace('/\s+/', '', get_option( 'contact_information_saintpierredescorps_phone' )) . '">' . get_option( 'contact_information_saintpierredescorps_phone' ); ?></a><br> 
+									Tél. : <?php echo get_option( 'contact_information_saintpierredescorps_phone' ); ?><br> 
 									Mail : <a href="mailto:<?php echo get_option( 'contact_information_saintpierredescorps_email' ) . '">' . get_option( 'contact_information_saintpierredescorps_email' ); ?></a><br>
 									<br>
 									</span>
 									<span class="hidden-to-m">—</span> <br>
 									<br>
 								</div>
-								<div class="col-xs-12 col-sm-6 col-md-12 site-footer__text__inner">
+								<!-- <div class="col-xs-12 col-sm-6 col-md-12 site-footer__text__inner">
 									<a href="https://goo.gl/maps/Jnd2Vd9Psqz" target="_blank">
 										<span class="color-red uppercase">
 											La Ville-aux-Dames
 										</span>
 										<br>
-										<br>
-										<?php echo nl2br( get_option( 'contact_information_amboise' ) ); ?>
-										<br>
+										<br> -->
+										<?php // echo nl2br( get_option( 'contact_information_amboise' ) ); ?>
+										<!-- <br>
 									</a>
-									<br>
+									<br> -->
 									<!-- http://stackoverflow.com/a/2109339 -->
-									Tél. : <a href="tel:<?php echo preg_replace( '/\s+/', '', get_option( 'contact_information_amboise_phone' ) ) . '">' . get_option( 'contact_information_amboise_phone' ); ?></a><br> 
-									Mail : <a href="mailto:<?php echo get_option( 'contact_information_amboise_email' ) . '">' . get_option( 'contact_information_amboise_email' ); ?></a><br>
-								</div>
+									<!-- Tél. : <a href="tel:<?php // echo preg_replace( '/\s+/', '', get_option( 'contact_information_amboise_phone' ) ) . '">' . get_option( 'contact_information_amboise_phone' ); ?></a><br> 
+									Mail : <a href="mailto:<?php // echo get_option( 'contact_information_amboise_email' ) . '">' . get_option( 'contact_information_amboise_email' ); ?></a><br>
+								</div> -->
 							</div>
 						</div>
 
@@ -64,7 +64,7 @@
 								<?php echo nl2br( get_option( 'timetable_opening' ) ) ?>
 							</p>
 
-							<iframe class="site-footer__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.649320186645!2d0.7201911156226458!3d47.37976247917026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd410ee8eb249%3A0x83f10976d113fefa!2s32+Avenue+Jacques+Duclos%2C+37700+Saint-Pierre-des-Corps!5e0!3m2!1sfr!2sfr!4v1459532161811" width="100%" height="auto" style="border:0" allowfullscreen></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10803.297164198348!2d0.7853845!3d47.3958611!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe54ff8b11c57ab82!2sE.Leclerc+La+Ville+aux+Dames!5e0!3m2!1sfr!2sfr!4v1490297251633" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
