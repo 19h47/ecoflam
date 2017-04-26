@@ -64,7 +64,7 @@
 								<?php echo nl2br( get_option( 'timetable_opening' ) ) ?>
 							</p>
 
-							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10803.297164198348!2d0.7853845!3d47.3958611!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe54ff8b11c57ab82!2sE.Leclerc+La+Ville+aux+Dames!5e0!3m2!1sfr!2sfr!4v1490297251633" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1350.3506459580321!2d0.7880652!3d47.3982608!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1492187360479" width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
